@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    width: 1600px;
+    min-height: 1000px;
+    color: #142033;
+    background:
+      radial-gradient(circle at 8% 0%, rgba(47, 111, 237, .10), transparent 30%),
+      radial-gradient(circle at 94% 90%, rgba(19, 150, 143, .08), transparent 30%),
+      #f5f7fb;
+    font-family: "Microsoft YaHei", "Segoe UI", system-ui, sans-serif;
+  }
+  .sheet { padding: 54px 70px 34px; }
+  .eyebrow {
+    margin: 0 0 12px;
+    color: #2f6fed;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .18em;
+  }
+  h1 {
+    margin: 0 0 8px;
+    font-size: 38px;
+    font-weight: 650;
+    letter-spacing: -.02em;
+  }
+  .subtitle { margin: 0; color: #63708a; font-size: 15px; line-height: 1.6; }
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 390px;
+    gap: 44px;
+    margin-top: 38px;
+  }
+  .flow { display: flex; flex-direction: column; min-width: 0; }
+  .card {
+    position: relative;
+    padding: 19px 22px 18px;
+    border: 1px solid #dbe3f0;
+    border-left: 4px solid var(--accent);
+    border-radius: 12px;
+    background: rgba(255,255,255,.93);
+    box-shadow: 0 12px 28px rgba(35, 58, 95, .06);
+  }
+  .card-top { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .card h2 { margin: 0; font-size: 19px; font-weight: 650; }
+  .card p { margin: 6px 0 12px; color: #63708a; font-size: 13px; line-height: 1.6; }
+  .tag {
+    display: inline-block;
+    margin: 3px 6px 0 0;
+    padding: 4px 8px;
+    border-radius: 5px;
+    color: #45546f;
+    background: #eef3fb;
+    font-family: Consolas, "SFMono-Regular", monospace;
+    font-size: 11px;
+    line-height: 1.35;
+  }
+  .badge {
+    flex: 0 0 auto;
+    padding: 4px 8px;
+    border-radius: 999px;
+    color: #17603c;
+    background: #e4f3ea;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: .06em;
+  }
+  .badge.private { color: #9a2222; background: #fbe9e8; }
+  .arrow {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 42px;
+    margin-left: 28px;
+    color: #7b8ca8;
+    font-size: 11px;
+  }
+  .arrow::before {
+    width: 1px;
+    height: 42px;
+    background: #b7c5db;
+    content: "";
+  }
+  .arrow span { margin-top: 4px; }
+  .arrow b { color: #45546f; font-weight: 600; }
+  .client { --accent: #2f6fed; }
+  .pages { --accent: #2f6fed; }
+  .functions { --accent: #7a5af8; }
+  .database { --accent: #13968f; }
+  .boundary {
+    padding: 25px 24px;
+    border-radius: 14px;
+    color: #e8eefb;
+    background: #101b31;
+    box-shadow: 0 16px 38px rgba(16, 27, 49, .15);
+  }
+  .boundary h2 { margin: 0 0 5px; font-size: 18px; font-weight: 650; }
+  .boundary > p { margin: 0 0 18px; color: #aebbd4; font-size: 12px; line-height: 1.65; }
+  .boundary-item { padding: 13px 0; border-top: 1px solid #2b3a55; }
+  .boundary-item strong { display: block; margin-bottom: 4px; font-size: 12px; }
+  .boundary-item span { color: #aebbd4; font-size: 11px; line-height: 1.6; }
+  .boundary-item.public strong { color: #7fe0b0; }
+  .boundary-item.private strong { color: #ffabab; }
+  .note {
+    margin-top: 28px;
+    padding-top: 15px;
+    border-top: 1px solid #dbe3f0;
+    color: #7b8ca8;
+    font-size: 11px;
+    line-height: 1.7;
+  }
+  .footer { display: flex; justify-content: space-between; gap: 20px; margin-top: 18px; color: #8a97ad; font-size: 10px; }
+</style>
+</head>
+<body>
+  <main class="sheet">
+    <p class="eyebrow">SJTUMUNC 2026 · PUBLIC SOURCE</p>
+    <h1>官网技术架构</h1>
+    <p class="subtitle">静态前端 + Serverless API + 私有数据库。公开代码，不公开代表数据。</p>
+
+    <div class="layout">
+      <section class="flow">
+        <article class="card client">
+          <div class="card-top"><h2>浏览器 / 手机</h2><span class="badge">PUBLIC</span></div>
+          <p>访问官网页面，查看大会信息与公开学术资源；代表登录后查询自己的席位。</p>
+          <span class="tag">Chrome / Safari / Edge</span><span class="tag">responsive</span><span class="tag">zh / en</span>
+        </article>
+        <div class="arrow"><span><b>HTTPS</b> · 域名 / CDN / 证书</span></div>
+        <article class="card pages">
+          <div class="card-top"><h2>Cloudflare Pages</h2><span class="badge">PUBLIC</span></div>
+          <p>静态资源托管：页面、样式、脚本和公开文件通过全球 CDN 分发。</p>
+          <span class="tag">HTML / CSS / JS</span><span class="tag">7 pages</span><span class="tag">static assets</span>
+        </article>
+        <div class="arrow"><span><b>同源 /api/*</b> · 浏览器不直连数据库</span></div>
+        <article class="card functions">
+          <div class="card-top"><h2>Cloudflare Pages Functions</h2><span class="badge">SERVER</span></div>
+          <p>运行在 Cloudflare Worker 上的只读 API：校验登录，按姓名 + 代表编号返回单条席位。</p>
+          <span class="tag">/api/login</span><span class="tag">/api/seat</span><span class="tag">secret in Pages</span>
+        </article>
+        <div class="arrow"><span><b>HTTPS + API Key</b> · 仅服务端持有</span></div>
+        <article class="card database">
+          <div class="card-top"><h2>腾讯云 CloudBase PostgreSQL</h2><span class="badge private">PRIVATE</span></div>
+          <p>存储代表、席位、学校和缴费状态；数据库不向浏览器开放，也不进入代码仓库。</p>
+          <span class="tag">public.delegates</span><span class="tag">RLS</span><span class="tag">private database</span>
+        </article>
+      </section>
+
+      <aside class="boundary">
+        <h2>仓库边界</h2>
+        <p>这个公开仓库展示可复用的代码与架构，不包含线上运营数据。</p>
+        <div class="boundary-item public"><strong>公开</strong><span>前端源码 · Pages Function 源码 · schema · README · 示例配置</span></div>
+        <div class="boundary-item private"><strong>不公开</strong><span>数据库记录 · 代表名单 · 缴费信息 · PDF/视频/二维码 · 校徽/地图/音乐等素材</span></div>
+        <div class="boundary-item"><strong>安全原则</strong><span>浏览器只调用同源 /api；数据库密钥只存在 Cloudflare Secret；不把密钥写进前端。</span></div>
+      </aside>
+    </div>
+
+    <p class="note">说明：Cloudflare 负责静态托管与 Serverless API；CloudBase PostgreSQL 是腾讯云托管数据库，不属于 Cloudflare。代码仓库不含数据库或真实名单。</p>
+    <div class="footer"><span>SJTUMUNC 2026 · Technical Architecture</span><span>github.com/natricknye/sjtumuna-website</span></div>
+  </main>
+</body>
+</html>
