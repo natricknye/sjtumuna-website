@@ -1,13 +1,44 @@
 # SJTUMUNC 2026 官网 · 源码展示
 
-**线上网站：** https://sjtumuna.pages.dev/
+[![线上网站](https://img.shields.io/badge/Live-sjtumuna.pages.dev-0f766e?style=flat-square)](https://sjtumuna.pages.dev/)
+[![Cloudflare Pages](https://img.shields.io/badge/Cloudflare-Pages-F38020?style=flat-square&logo=cloudflare&logoColor=white)](https://pages.cloudflare.com/)
+[![Cloudflare Workers](https://img.shields.io/badge/Cloudflare-Workers-F38020?style=flat-square&logo=cloudflare&logoColor=white)](https://workers.cloudflare.com/)
+[![PostgreSQL](https://img.shields.io/badge/PostgreSQL-CloudBase-4169E1?style=flat-square&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+[![Vanilla JS](https://img.shields.io/badge/Frontend-Vanilla%20JS-F7DF1E?style=flat-square&logo=javascript&logoColor=black)](https://developer.mozilla.org/docs/Web/JavaScript)
+[![License](https://img.shields.io/badge/License-Learning--Only-9f1239?style=flat-square)](LICENSE)
 
-2026 上海交通大学南洋模拟联合国大会官网的源代码展示。  
+**2026 上海交通大学南洋模拟联合国大会官网** · [在线访问](https://sjtumuna.pages.dev/)
+
+面向参会者的双语静态官网：大会信息、委员会、学术资源、代表登录与席位查询。前端使用原生 HTML/CSS/JS，后端由 Cloudflare Pages Functions 和腾讯云 CloudBase PostgreSQL 支撑。
+
+> **公开边界：** 本仓库只包含源码与架构，不包含线上数据库、真实代表名单、PDF/视频/二维码/地图等素材。
+>
+> **许可证：** Learning-Only / source-available，**不是 open source**；禁止复制自用、部署、分发或商用。详见 [LICENSE](LICENSE)。
+
 这是一个**非官方学生项目**，与上海交通大学官方无隶属或背书关系。
 
-> 本仓库只开放代码与架构，不包含线上数据库、真实代表名单或活动素材。
+**目录：** [项目概览](#项目概览) · [功能亮点](#功能亮点) · [技术架构](#技术架构) · [技术栈](#技术栈) · [本地预览](#本地预览) · [问卷结果](#survey) · [License](#license)
 
-> **许可证提醒：** 这是 **source-available、仅限学习/研究** 的仓库，**不是 open source**。禁止复制自用、修改衍生、部署、分发或商用；详见 `LICENSE`。此前按 MIT 发布的版本仍受原许可约束。
+## 项目概览
+
+| 维度 | 内容 |
+|---|---|
+| 定位 | 2026 SJTUMUNC 参会者官网 |
+| 页面 | 7 个内容页 + 站点外壳 |
+| 委员会 | GA2 / ECOSOC / 1912 / UNODC |
+| 前端 | 原生 HTML5 / CSS3 / JavaScript，无框架、无构建 |
+| 后端 | Cloudflare Pages Functions（Workers） |
+| 数据库 | 腾讯云 CloudBase PostgreSQL（私有） |
+| 线上 | <https://sjtumuna.pages.dev/> |
+
+## 功能亮点
+
+- **代表登录**：姓名 + 代表编号，服务端校验后只返回本人一条记录。
+- **席位卡**：委员会、席位、角色、姓名、编号、学校、缴费状态；不展示第二志愿。
+- **学术资源**：四个委员会入口、QR 群提示、培训视频、背景文件与规则 PDF。
+- **大会信息**：会场、日程、徐汇校区指南与可交互地图。
+- **双语与响应式**：中英文切换，适配桌面与手机。
+- **隐私优先**：浏览器不直连数据库；完整名单不进入前端或公开仓库。
 
 ## 技术架构
 
@@ -28,13 +59,17 @@
 
 这里的“静态”指页面文件原样分发，没有 Node/Python 服务端渲染、没有前端框架构建、没有数据库直连；**不代表页面没有交互**。浏览器端 JavaScript 仍负责语言切换、会场展开、登录、席位查询、地图拖拽、视频和问卷弹窗等动态行为，需要数据时调用同源 `/api/*`。
 
-## 作者注：AIGC 时代，Vue/React 过时了吗？
+选择原生 JS 的原因不是“排斥框架”，而是页面数量有限、交互边界清晰、部署目标是静态 CDN。这里没有前端构建链，改完即可部署；框架的组件化、状态管理、路由、可访问性和测试能力，在更大的应用里仍然重要。
 
-这是一个开放讨论，不是本项目的结论。
+## 设计取舍：原生 JS 与 AIGC
+
+这是一个开放讨论，不是本项目的结论，也不是“Vue/React 已过时”的判断。
 
 AIGC 确实降低了原生 HTML/CSS/JS 的编写和维护成本，也让“小站点不必默认引入框架、构建链和运行时依赖”变得更有吸引力。但这不等于 Vue/React 已经过时：组件化、状态管理、路由、可访问性、测试、团队协作和成熟生态，在中大型应用里仍然需要框架；AI 更适合在明确约束下生成组件，而不是替代架构决策。
 
 本项目选择原生 JS，是因为页面数量有限、交互边界清晰、部署目标是静态 CDN。这是对场景的适配，不是对 Vue/React 的否定。真正值得重新思考的，可能是“每个项目都默认上框架”的习惯，而不是框架本身。
+
+本项目在开发中使用了 AIGC 辅助，但技术选型、数据边界、部署配置和最终审查由维护者人工确认。
 
 ## 数据流
 
@@ -92,6 +127,8 @@ python -m http.server 8402
 http://127.0.0.1:8402/mun-site-v78/
 ```
 
+> 建议通过本地 HTTP 服务打开，不要直接双击 HTML；页面中的 `fetch` 和同源接口在 `file://` 下可能无法正常工作。
+
 仓库只包含源码，没有活动 PDF、视频、二维码、校徽、地图、音乐和字体等素材；直接运行时这些资源会缺失。请放入你有权使用的文件到 `mun-site-v78/assets/`。
 
 ## 环境变量
@@ -111,11 +148,15 @@ CLOUDBASE_ENV_ID=你的 CloudBase 环境 ID
 
 公开版本中的 `_worker.js` 使用 `YOUR_CLOUDBASE_ENV_ID` 占位，部署前请替换为你自己的环境 ID，或改成从 `env` 读取。
 
+生产环境的 Secret 只存放在 Cloudflare Pages 中，不进入仓库。
+
 数据库表结构见 `backend/schema.sql`、`backend/schema-seat-details.sql` 和 `backend/schema-minimal.sql`。
 
-## 官网体验问卷结果（2026-11-02）
+## 官网体验问卷结果（2026-11-02） <a id="survey"></a>
 
 > 有效回答 **11 份**，导出时间 2026-11-02。以下全部是**单题独立分布**：不按身份、设备、登录状态或任何其他题目做交叉分析。样本很小，1 人约等于 9.1 个百分点，结果只适合作方向性参考。
+
+**一句话结论：** n=11，NPS 81.8；整体视觉和学术资料下载的 5 分占比达到 90.9%，但 Q6 首页下一步仅 27.3%，说明并非所有维度都极端集中。
 
 ### 结果总览
 
@@ -192,7 +233,7 @@ Q6 的最高分占比只有 27.3%，Q14 的 10 分占比为 72.7%，说明并非
 
 请勿在公开 fork 中加入真实名单、手机号、缴费信息或凭证截图。
 
-## License（学习专用）
+## License（学习专用） <a id="license"></a>
 
 代码适用 `LICENSE` 的 **SJTUMUNC Website Learning-Only License v1.0**：
 
