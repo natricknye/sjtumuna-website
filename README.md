@@ -1,6 +1,7 @@
 # SJTUMUNC 2026 官网 · 开源代码
 
 2026 上海交通大学南洋模拟联合国大会官网的源代码展示。  
+这是一个**非官方学生项目**，与上海交通大学官方无隶属或背书关系。
 
 > 本仓库只开放代码与架构，不包含线上数据库、真实代表名单或活动素材。
 
@@ -19,7 +20,9 @@
 | 部署 | Wrangler | 将静态站点与 Pages Function 一起部署 |
 | 问卷 | 腾讯问卷（外部链接） | 官网体验反馈，不属于核心业务链路 |
 
-没有使用 Vue、React、FastAPI 或 SQLite；前端是纯静态文件，后端是 Cloudflare Serverless Function。
+没有使用 Vue、React、FastAPI 或 SQLite。前端是**无框架的原生 HTML/CSS/JS 静态站点**，由 Cloudflare Pages 直接托管；后端是 Cloudflare Serverless Function。
+
+这里的“静态”指页面文件原样分发，没有 Node/Python 服务端渲染、没有前端框架构建、没有数据库直连；**不代表页面没有交互**。浏览器端 JavaScript 仍负责语言切换、会场展开、登录、席位查询、地图拖拽、视频和问卷弹窗等动态行为，需要数据时调用同源 `/api/*`。
 
 ## 数据流
 
@@ -110,3 +113,5 @@ CLOUDBASE_ENV_ID=你的 CloudBase 环境 ID
 
 - **代码**：MIT，见 `LICENSE`
 - **内容、商标、活动文档、第三方素材**：不随代码授权，见 `CONTENT-NOTICE.md`
+
+本项目不代表上海交通大学官方；校名、校徽和其他品牌素材的使用需另行获得授权。
