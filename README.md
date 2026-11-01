@@ -2,14 +2,12 @@
 
 Source code for the 2026 Shanghai Jiao Tong University Nanyang Model United Nations conference website.
 
-This is an **unofficial student project**. It is not an official SJTU website and does not grant rights to SJTU names, logos, conference documents, photographs, maps, music, fonts, or third-party assets.
-
 ## What is included
 
-- Static front-end source: HTML, CSS and JavaScript
-- Cloudflare Pages Functions read-only delegate API (`_worker.js`)
-- CloudBase PostgreSQL schema and function source in `backend/`
-- Deployment and environment examples with placeholders
+Static front-end source: HTML, CSS and JavaScript
+Cloudflare Pages Functions read-only delegate API (`_worker.js`)
+CloudBase PostgreSQL schema and function source in `backend/`
+Deployment and environment examples with placeholders
 
 ## What is deliberately excluded
 
