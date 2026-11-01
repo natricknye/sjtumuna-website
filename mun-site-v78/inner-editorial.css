@@ -1,0 +1,167 @@
+/* Shared editorial rhythm, driven by the existing scroll palette. */
+/* Preserve original theme colors by day; give fine vector lines a clear night silhouette. */
+.inner-editorial.atlas-night .committee-editorial-art img { filter:none; opacity:1; }
+.inner-editorial .shell { width:min(1240px,calc(100% - 80px)); }
+.inner-editorial .site-header { min-height:80px; flex-wrap:nowrap; gap:20px; }
+.inner-editorial .header-tools { width:auto; margin:0; padding:0; border:0; gap:18px; }
+.inner-editorial .brand { font-size:13px; }
+.inner-editorial .site-nav a { font-size:12px; padding:9px 10px; white-space:nowrap; }
+.inner-editorial .page-main { padding-top:48px; }
+.inner-editorial .page-intro { padding-bottom:30px; margin-bottom:26px; border-bottom:1px solid var(--line); }
+.inner-editorial :is(.page-intro h1,.delegate-library h1,.forum-hero h1) { font:400 clamp(32px,4vw,54px)/1.28 'Songti SC','SimSun',Georgia,serif; letter-spacing:-.025em; }
+.inner-editorial .page-intro .intro { font-size:14px; max-width:64em; }
+.inner-editorial :is(.public-section,.organizer-card,.forum-hero) { box-shadow:none; }
+.editorial-document { display:grid; grid-template-columns:190px minmax(0,1fr); gap:56px; align-items:start; }
+.editorial-contents { position:sticky; top:140px; display:grid; gap:0; padding:0 20px 0 0; border-right:1px solid var(--line); }
+.editorial-contents a { display:flex; gap:12px; padding:12px 0; text-decoration:none; color:var(--muted); font-size:12px; line-height:1.65; }
+.editorial-contents a span { color:var(--fx-accent); font:14px/1.7 Georgia,serif; }
+.editorial-contents a:hover { color:var(--fx-accent); }
+.editorial-contents a:focus-visible { outline:2px solid var(--fx-accent); outline-offset:4px; }
+.editorial-reading { min-width:0; }
+.inner-editorial .editorial-reading .public-section { padding:28px 0; margin:0; border:0; border-radius:0; border-bottom:1px solid var(--line); background:transparent; scroll-margin-top:145px; }
+.editorial-reading .public-section h2 { margin-bottom:22px; font:400 27px/1.4 'Songti SC','SimSun',serif; }
+.editorial-reading p { font-size:15px; line-height:2.1; max-width:65ch; }
+.editorial-reading .people-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px 24px; padding:0; list-style:none; font-size:14px; }
+.inner-editorial .public-event { display:flex; flex-wrap:wrap; gap:16px 28px; padding:0 0 26px; margin:0; background:none; border:0; }
+.inner-editorial .public-event > div { padding:0; border:0; background:none; flex:1 1 200px; }
+.inner-editorial .public-event strong { font-size:13px; color:var(--ink); }
+.inner-editorial .public-event .event-label { font-size:10px; }
+.editorial-reading .notice-columns { display:contents; }
+.inner-editorial .deadline-banner { background:transparent; border:0; border-left:2px solid var(--fx-accent); border-radius:0; padding:10px 0 10px 22px; margin:0 0 26px; }
+.inner-editorial .deadline-banner strong { font-size:13px; line-height:1.9; }
+.inner-editorial .public-actions { margin-top:28px; }
+/* Four working dossiers, rather than a wall of nested cards. */
+.committee-dossier { margin:0 0 14px; border:1px solid var(--line); border-left:3px solid var(--committee-accent); border-radius:3px; background:transparent; scroll-margin-top:120px; }
+.committee-dossier-heading { display:grid; grid-template-columns:64px minmax(0,1fr) auto 22px; gap:22px; align-items:center; padding:24px 27px; cursor:pointer; list-style:none; min-height:116px; }
+.committee-dossier-heading::-webkit-details-marker { display:none; }
+.dossier-number { font:400 40px/1 Georgia,serif; color:var(--committee-accent); }
+.inner-editorial .dossier-title h2 { margin:0 0 7px; font:400 clamp(19px,2vw,25px)/1.5 'Songti SC','SimSun',serif; color:var(--ink); }
+.inner-editorial .dossier-title .committee-topic { font-size:12px; font-weight:400; margin:0; color:var(--muted); }
+.committee-dossier .tag { background:none; border:0; padding:0; color:var(--muted); font-size:11px; white-space:nowrap; }
+.dossier-indicator { color:var(--committee-accent); font:28px/1 Georgia,serif; transition:transform .35s; }
+.committee-dossier[open] .dossier-indicator { transform:rotate(45deg); }
+.committee-dossier[open] > summary { border-bottom:1px solid var(--line); }
+.committee-dossier-heading:focus-visible { outline:2px solid var(--committee-accent); outline-offset:4px; }
+.inner-editorial .committee-dossier .committee-card { display:flow-root; border:0; border-radius:0; margin:0; padding:28px; background:transparent; box-shadow:none; color:var(--ink); }
+.committee-editorial-art { float:right; width:30%; max-width:320px; aspect-ratio:3/2; margin:0 0 24px 32px; overflow:hidden; border-radius:2px; opacity:.85; }
+.committee-editorial-art img { display:block; width:100%; height:100%; object-fit:cover; }
+.inner-editorial .committee-dossier .committee-facts { display:flex; flex-wrap:wrap; gap:24px; margin:0 0 26px; }
+.inner-editorial .committee-dossier .committee-facts > div { padding:0; border:0; background:none; min-width:120px; flex:1; }
+.inner-editorial .committee-dossier :is(p,li,dd) { color:var(--muted); font-size:14px; line-height:1.9; }
+.inner-editorial .committee-dossier :is(dt,h3) { color:var(--fx-accent); font-size:12px; margin-bottom:9px; }
+.committee-dossier .committee-details { clear:both; border-top:1px solid var(--line); padding-top:16px; margin-top:24px; }
+.committee-dossier .committee-details summary { font-size:13px; }
+.committee-dossier .committee-subsection .people-list { padding-left:18px; }
+.inner-editorial.atlas-night .committee-dossier :is(.dossier-number,.dossier-indicator,.committee-details summary) { color:var(--fx-accent); }
+/* Public library: four selectors, one live stage, no new artwork. */
+.inner-editorial .delegate-library { padding:0; border:0; border-radius:0; background:none; box-shadow:none; margin-bottom:32px; }
+.inner-editorial .delegate-library::before { display:none; }
+.inner-editorial .delegate-library-heading { padding:0 0 30px; border-bottom:1px solid var(--line); }
+.inner-editorial .delegate-library-tag { background:none; border-radius:0; padding:8px 0; border:0; }
+.inner-editorial .delegate-choices { grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-bottom:24px; }
+.inner-editorial .delegate-choice { min-height:165px; padding:19px; gap:10px; border:1px solid var(--line); border-top:2px solid var(--committee-accent); border-radius:2px; background:transparent; color:var(--ink); transition:background .35s,transform .35s,border-color .35s; }
+.inner-editorial .delegate-choice:hover { transform:translateY(-3px); box-shadow:none; }
+.inner-editorial .delegate-choice[aria-expanded=true] { outline:0; border-color:var(--committee-accent); background:color-mix(in srgb,var(--committee-wash) 65%,transparent); }
+.inner-editorial .delegate-choice .choice-title { font:400 20px/1.4 'Songti SC','SimSun',serif; color:var(--ink); }
+.inner-editorial .delegate-choice .choice-number { font-size:10px; }
+.inner-editorial .delegate-choice .choice-topic { color:var(--muted); font-size:11px; line-height:1.6; }
+.inner-editorial .delegate-choice .choice-action { display:none; }
+.inner-editorial .delegate-choice .choice-plus { font-size:22px; top:18px; right:16px; }
+.inner-editorial #academic-procedures { overflow:clip; }
+.inner-editorial .delegate-panel.delegate-document { min-height:0; padding:25px; margin:0; border-radius:2px; border:1px solid var(--line); border-top:2px solid var(--committee-accent); background:transparent; box-shadow:none; }
+.inner-editorial .delegate-panel .delegate-panel-heading h2 { font:400 27px/1.45 'Songti SC','SimSun',serif; color:var(--ink); }
+.inner-editorial .delegate-panel-close { border-radius:2px; background:none; }
+.inner-editorial .procedure-frame { border-radius:2px; background:#fff; }
+.inner-editorial .procedure-files { border-color:var(--line); }
+.inner-editorial .academic-download { background:transparent; border-radius:2px; border-color:var(--line); padding:22px; box-shadow:none; }
+.inner-editorial .academic-download:hover { background:var(--card); transform:translateY(-3px); box-shadow:none; }
+.inner-editorial .academic-download strong { color:var(--fx-accent); }
+.inner-editorial .academic-file-download { color:var(--ink); border-color:var(--line); }
+.inner-editorial.atlas-night .delegate-choice[aria-expanded=true] { background:#ffffff08; }
+.inner-editorial.atlas-night .choice-number { color:var(--fx-accent); }
+.inner-editorial.atlas-night .academic-file-type { color:var(--muted); }
+/* Forum remains one continuous white–night–white page, not a black insert. */
+.inner-editorial .forum-hero { display:block; padding:0 0 34px; border:0; border-radius:0; background:none; }
+.inner-editorial .forum-hero-copy { max-width:850px; }
+.inner-editorial .forum-hero-art { display:none; }
+.inner-editorial .forum-hero h1 { max-width:850px; }
+.inner-editorial .forum-facts { display:flex;flex-wrap:wrap;align-items:baseline;border:0;border-radius:0;background:none;gap:20px 42px;margin-top:0;padding:0 0 30px;box-shadow:none;overflow:visible; }
+.inner-editorial .forum-facts > div { display:flex;flex-direction:row;align-items:baseline;gap:12px;border:0;padding:0;background:none;box-shadow:none; }
+.inner-editorial .forum-facts .event-label{flex-shrink:0;white-space:nowrap;margin:0;color:var(--forum-facts-ink,var(--ink))}
+.inner-editorial .forum-facts strong { font-size:13px;font-weight:500;color:var(--forum-facts-ink,var(--ink)); }
+.inner-editorial .forum-section { margin-top:44px; }
+.inner-editorial .forum-overview-card { padding:0; border:0; border-radius:0; background:none; }
+.inner-editorial .forum-overview-card p { font-size:15px; line-height:2; max-width:72ch; }
+.inner-editorial.forum-page #forum-registration { --ink:inherit; --muted:inherit; --fx-accent:inherit; --card:inherit; --line:inherit; --rose:inherit; color:var(--ink); background:none; border:0; border-radius:0; padding:0; }
+.inner-editorial.forum-page #forum-registration :is(input,select,textarea) { color-scheme:normal; }
+.inner-editorial.forum-page #forum-registration select:disabled { background:var(--card); }
+.inner-editorial .forum-registration-form { border-radius:2px; padding:28px; background:var(--card); box-shadow:none; }
+.inner-editorial .forum-eligibility-card { border:0; border-left:1px solid var(--line); border-radius:0; background:none; padding:12px 0 12px 28px; }
+.inner-editorial .organizer-grid { gap:0 36px; }
+.inner-editorial .organizer-card { border:0; border-bottom:1px solid var(--line); border-radius:0; padding:24px 0; background:none; }
+.inner-editorial .forum-contact-note { border:0; border-left:2px solid var(--fx-accent); border-radius:0; background:none; padding:12px 24px; }
+@media(max-width:1200px) {
+ .inner-editorial .site-header { flex-wrap:wrap; gap:0; }
+ .inner-editorial .header-tools { width:100%; margin-top:8px; padding-top:8px; justify-content:space-between; }
+ .editorial-document { gap:32px; grid-template-columns:155px minmax(0,1fr); }
+}
+@media(max-width:720px) {
+ .inner-editorial .shell { width:calc(100% - 32px); }
+ .inner-editorial .site-header { padding:12px 0 8px; gap:0; }
+ .inner-editorial .brand { font-size:11px; }
+ .inner-editorial .header-tools { gap:8px; }
+ .inner-editorial .site-nav { min-width:0; overflow-x:auto; }
+ .inner-editorial .site-nav a { font-size:11px; padding:8px; }
+ .inner-editorial .language-switch button { font-size:10px; padding:0 6px; }
+ .inner-editorial .page-main { padding-top:30px; }
+ .inner-editorial .page-intro { padding-bottom:24px; margin-bottom:24px; }
+ .editorial-document { display:block; }
+ .editorial-contents { position:relative; top:auto; display:flex; gap:18px; overflow-x:auto; border-right:0; border-bottom:1px solid var(--line); margin-bottom:16px; padding:0; }
+ .editorial-contents a { flex:none; font-size:11px; }
+ .editorial-reading p { font-size:14px; }
+ .editorial-reading .people-list { grid-template-columns:1fr; }
+ .committee-dossier-heading { grid-template-columns:35px minmax(0,1fr) 16px; gap:12px; padding:20px 16px; }
+ .dossier-number { font-size:28px; }
+ .committee-dossier-heading .committee-topline { display:none; }
+ .inner-editorial .dossier-title h2 { font-size:19px; }
+ .inner-editorial .committee-dossier .committee-card { padding:20px 16px; }
+ .committee-editorial-art { width:100%; max-width:none; float:none; margin:0 0 22px; aspect-ratio:2/1; }
+ .inner-editorial .committee-dossier .committee-facts { gap:18px; }
+ .inner-editorial .delegate-choices { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+ .inner-editorial .delegate-choice { min-height:145px; padding:16px; }
+ .inner-editorial .delegate-choice .choice-title { font-size:18px; }
+ .inner-editorial .delegate-panel.delegate-document { padding:18px 12px; }
+ .inner-editorial .delegate-panel .delegate-panel-heading h2 { font-size:21px; }
+ .inner-editorial .academic-download-grid { grid-template-columns:1fr; gap:0; }
+ .inner-editorial .academic-download { display:grid; grid-template-columns:42px minmax(0,1fr) auto; gap:12px; align-items:center; padding:22px 8px; border:0; border-bottom:1px solid var(--line); }
+ .inner-editorial .academic-download strong { font-size:17px; }
+ .inner-editorial .academic-file-download { margin:0; padding:0; border:0; font-size:10px; gap:8px; }
+ .inner-editorial .forum-facts { display:flex; flex-direction:column; gap:18px; }
+ .inner-editorial .forum-registration-form { padding:22px 16px; }
+ .inner-editorial .forum-eligibility-card { border-left:0; border-top:1px solid var(--line); padding:24px 0; }
+}
+@media(prefers-reduced-motion:reduce) {
+ .inner-editorial :is(.delegate-choice,.academic-download,.dossier-indicator) { transition:none; }
+}
+/* An unboxed contact directory, with one organization per ruled line. */
+.forum-organizer-list{border-top:1px solid var(--line);margin-top:28px}
+.forum-organizer-row{display:grid;grid-template-columns:65px minmax(0,1.5fr) minmax(120px,.65fr) minmax(180px,1fr);align-items:baseline;gap:18px;padding:25px 0;border-bottom:1px solid var(--line)}
+.forum-organizer-role{font-size:11px;color:var(--muted)}
+.forum-organizer-row h3{margin:0;font-size:15px;font-weight:500;line-height:1.8}
+.forum-organizer-row p{margin:0;font-size:12px;color:var(--muted)}
+.forum-organizer-row a{font-size:12px;color:var(--ink);text-decoration:none;overflow-wrap:anywhere}
+.forum-organizer-row a:hover{text-decoration:underline}
+.inner-editorial .forum-contact-note{background:none;border:0;border-radius:0;padding:28px 0;box-shadow:none}
+.observer-regulations .observer-rules-title{font-family:inherit;font-size:13px;font-style:normal;font-weight:400;line-height:1.9;letter-spacing:0;color:var(--muted);margin:0 0 26px}
+.observer-rule-section{margin:28px 0 0;max-width:none;font-size:15px}
+.observer-rule-section h4{font-size:15px;font-weight:600;margin:0 0 12px;color:var(--ink)}
+.observer-rule-section ol{margin:0;padding-left:1.5em;list-style:decimal}
+.observer-rule-section li{padding-left:.35em;margin:0 0 14px;line-height:2.1;color:var(--ink)}
+.observer-rule-section p{line-height:2.1}.observer-rule-section .observer-fee{font-size:16px;font-weight:600;color:var(--ink);margin:10px 0}
+@media(max-width:900px){.forum-organizer-row{grid-template-columns:60px minmax(0,1fr);gap:6px 16px}.forum-organizer-role{grid-row:span 3}.forum-organizer-row p,.forum-organizer-row a{grid-column:2}.forum-organizer-row a{padding:5px 0}.observer-regulations .observer-rules-title{font-size:12px}}
+.oc-departments{margin-top:24px}
+.oc-department{display:grid;grid-template-columns:120px minmax(0,1fr);gap:20px 28px;padding:24px 0;border-bottom:1px solid var(--line)}
+.oc-department:first-child{padding-top:8px}.oc-department:last-child{border-bottom:0;padding-bottom:0}
+.oc-department h3{font-size:15px;font-weight:500;line-height:1.8;margin:0;color:var(--fx-accent,var(--ink))}
+.editorial-reading .oc-department .people-list{margin:0;font-size:13px;gap:12px 24px}
+@media(max-width:720px){.oc-department{grid-template-columns:1fr;gap:15px;padding:22px 0}.oc-department h3{font-size:16px}}

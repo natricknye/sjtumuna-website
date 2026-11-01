@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <script src="site-shell-entry.js?v=20261029a"></script>
+  <meta charset="utf-8">
+  <script src="auth.js?v=20261026e" defer></script>
+  <link rel="stylesheet" href="route-motion.css?v=20261022b">
+  <script src="route-motion.js?v=20261023g"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="2026 SJTUMUNC 会场信息：GA2、ECOSOC、1912 伦敦会议与 UNODC 的议题、学术团队、背景文件与会议规则。">
+  <meta name="theme-color" content="#f5f4ef">
+  <title data-i18n="committees.title">会场信息 · 上海交通大学南洋模拟联合国大会</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css?v=20261026c">
+  <link rel="stylesheet" href="site-music.css?v=20261023g">
+  <script src="site-music.js?v=20261022b" defer></script>
+  <link rel="stylesheet" href="site-effects.css?v=20261022b">
+  <link rel="stylesheet" href="committee-themes.css?v=20261022b">
+  <link rel="stylesheet" href="inner-editorial.css?v=20261022b">
+  <link rel="stylesheet" href="venue-spotlight.css?v=20261025a">
+  <link rel="stylesheet" href="diplomatic-globe.css?v=20261023h">
+  <link rel="stylesheet" href="committee-atlas.css?v=20261022b">
+  <link rel="stylesheet" href="committee-surfaces.css?v=20261022b">
+  <script src="globe-light.js?v=20261022b" defer></script>
+  <script src="committee-atlas.js?v=20261026a" defer></script>
+  <script src="diplomatic-globe.js?v=20261026b" defer></script>
+  <script src="inner-editorial.js?v=20261025a" defer></script>
+  <script src="home-effects.js?v=20261026a" defer></script>
+  <script src="translations.js?v=20261026k" defer></script>
+  <script src="public-content.js?v=20261026c" defer></script>
+  <script src="script.js?v=20261026b" defer></script>
+  <link rel="stylesheet" href="auth.css?v=20261023k">
+  <script src="astra.js?v=20261024e" defer></script>
+  <link rel="canonical" href="https://sjtumuna.pages.dev/committees">
+</head>
+<body>
+  <a class="skip-link" href="#main-content" data-i18n="common.skipContent">跳到正文</a>
+  <header class="site-header shell">
+    <a class="brand" href="index.html" aria-label="大会首页" data-i18n-aria-label="common.homeAria"><span class="brand-mark"><img src="assets/sjtu-seal-official.webp" width="2805" height="2806" alt=""></span><span class="association-logo header-association"><img src="assets/sjtumuna-logo-original.png" width="2100" height="1560" decoding="async" alt="SJTUMUNA"></span><span data-i18n="common.brand">上海交通大学南洋模拟联合国大会</span></a>
+    <div class="header-tools">
+      <nav class="site-nav" aria-label="主导航" data-i18n-aria-label="common.navAria">
+        <a href="index.html" data-i18n="common.navHome">首页</a>
+        <a class="active" href="committees.html" data-i18n="common.navCommittees">会场信息</a>
+        <a href="representative.html" data-i18n="common.navDelegate">代表界面</a>
+        <a href="about.html" data-i18n="common.navAbout">大会信息</a>
+        <a href="forum.html" data-i18n="common.navForum">论坛</a>
+        <a href="notice.html" data-i18n="common.navNotice">参会须知</a>
+      </nav>
+      <div class="language-switch" role="group" aria-label="选择语言" data-i18n-aria-label="common.languageAria"><button type="button" data-set-language="zh" aria-pressed="true">中文</button><button type="button" data-set-language="en" aria-pressed="false">English</button><div class="language-more"><button type="button" class="language-more-toggle" aria-label="更多语言" data-i18n-aria-label="common.moreLanguages" aria-haspopup="true" aria-expanded="false"><span aria-hidden="true">⌄</span></button><div class="language-menu" role="menu"><button type="button" role="menuitem" data-set-language="fr" lang="fr">Français</button><button type="button" role="menuitem" data-set-language="ru" lang="ru">Русский</button><button type="button" role="menuitem" data-set-language="ar" lang="ar">العربية</button><button type="button" role="menuitem" data-set-language="es" lang="es">Español</button><button type="button" role="menuitem" data-set-language="ko" lang="ko">한국어</button><button type="button" role="menuitem" data-set-language="ja" lang="ja">日本語</button><button type="button" role="menuitem" data-set-language="de" lang="de">Deutsch</button><button type="button" role="menuitem" data-set-language="pt" lang="pt">Português</button></div></div></div>
+    </div>
+  </header>
+  <main class="shell page-main" id="main-content" tabindex="-1">
+    <section class="page-intro"><p class="eyebrow">2026 · SJTUMUNC · SHANGHAI</p><h1 data-i18n="committees.heading">会场信息</h1><p class="intro" data-i18n="committees.intro">浏览各会场议题、规则、规模、学术团队与会场介绍。</p></section>
+    <div id="committees-content" class="public-content" aria-live="polite"></div>
+    <section class="committee-atlas home-orbit-scene" data-globe-mode="committees" aria-labelledby="committee-atlas-title">
+      <div class="committee-atlas-heading"><p class="eyebrow">2026 · SJTUMUNC · SHANGHAI</p><h2 id="committee-atlas-title">会场的世界坐标</h2><p class="atlas-context">国际机构与历史会议的所在地，汇聚于上海。<br>本届大会实际会址：上海交通大学徐汇校区国际与公共事务学院。</p></div>
+      <div class="home-orbit-layout">
+        <div class="diplomatic-world">
+          <div class="diplomatic-sphere"><canvas id="conference-globe" tabindex="0" role="img" aria-label="拖动或用方向键转动地球，点击地点查看会场"></canvas><div class="city-pins" aria-label="会场地点入口" data-i18n-aria-label="common.venueEntriesAria"></div></div>
+          <div class="globe-console"><p class="globe-instruction"></p></div>
+          <div class="globe-register" aria-hidden="true"><span></span><span>SHANGHAI · NEW YORK · LONDON · VIENNA</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="site-footer shell"><div class="footer-brand"><span class="association-logo"><img src="assets/sjtumuna-logo-original.png" width="2100" height="1560" loading="lazy" decoding="async" alt="SJTUMUNA"></span><div class="footer-brand-copy"><span data-i18n="common.brand">上海交通大学南洋模拟联合国大会</span><span class="footer-author"><span data-i18n="common.authorLabel">网站作者：</span><bdi>NateNye</bdi><br><span data-i18n="common.emailLabel">邮箱：</span><a href="mailto:natricknye@sjtu.edu.cn"><bdi>natricknye@sjtu.edu.cn</bdi></a></span></div></div><div class="footer-right"><div class="footer-contacts"><span><span data-i18n="common.qqLabel">QQ交流群：</span><bdi>583219861</bdi></span><a href="https://mp.weixin.qq.com/s/SiFgyaRmvLuihXEqrovayg" target="_blank" rel="noopener noreferrer"><span data-i18n="common.wechatAccount">交大模联微信公众号</span> <span aria-hidden="true">↗</span></a><a href="mailto:sjtumun@163.com">sjtumun@163.com</a></div><span class="footer-copyright"><span class="footer-credit">© 2026 <span class="footer-org">上海交通大学模拟联合国协会</span></span><span class="footer-icp"> · 沪交ICP备20260305</span></span></div></footer>
+
+<link rel="stylesheet" href="survey-entry.css?v=20261026c">
+<script src="survey-config.js?v=20261026c"></script>
+<script src="survey-entry.js?v=20261026c"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+/* Each dossier has a stable light theme, independent of the page's solar palette. */
+.inner-editorial .committee-dossier[data-committee] {
+ --ink:#302f36; --muted:#514e58; --line:var(--committee-line); --card:#fffdf9;
+ --fx-accent:var(--committee-accent); --fx-link:var(--committee-accent);
+ background:var(--committee-wash); border-color:var(--committee-line); color:var(--ink);
+}
+.inner-editorial .committee-dossier[data-committee] :is(.dossier-title h2,.dossier-number,.dossier-indicator,.committee-details summary,h3,dt) { color:var(--committee-accent); }
+.inner-editorial .committee-dossier[data-committee] :is(p,li,dd,.tag) { color:var(--muted); }
+.inner-editorial .committee-dossier[data-committee] .committee-facts > div { background:transparent; }
+.inner-editorial .committee-dossier[data-committee] .committee-editorial-art { opacity:1; }
+.inner-editorial .committee-dossier[data-committee] .committee-editorial-art img { filter:none; opacity:1; }

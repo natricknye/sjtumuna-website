@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <script src="site-shell-entry.js?v=20261029a"></script>
+  <meta charset="utf-8">
+  <script src="auth.js?v=20261026e" defer></script>
+  <link rel="stylesheet" href="route-motion.css?v=20261022b">
+  <script src="route-motion.js?v=20261023g"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="上海交通大学南洋模拟联合国大会代表界面：登录查询个人席位、学校、缴费状态及会场学术文件。">
+  <meta name="theme-color" content="#f5f4ef">
+  <title data-i18n="delegate.title">代表界面 · 上海交通大学南洋模拟联合国大会</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="style.css?v=20261026c">
+  <link rel="stylesheet" href="site-music.css?v=20261023g">
+  <script src="site-music.js?v=20261022b" defer></script>
+  <link rel="stylesheet" href="site-effects.css?v=20261022b">
+  <link rel="stylesheet" href="committee-themes.css?v=20261022b">
+  <link rel="stylesheet" href="delegate-downloads.css?v=20261023l">
+  <link rel="stylesheet" href="inner-editorial.css?v=20261022b">
+  <link rel="stylesheet" href="diplomatic-globe.css?v=20261023h">
+  <link rel="stylesheet" href="committee-atlas.css?v=20261022b">
+  <link rel="stylesheet" href="xuhui-map.css?v=20261026a">
+  <script src="globe-light.js?v=20261022b" defer></script>
+  <script src="committee-atlas.js?v=20261026a" defer></script>
+  <script src="xuhui-map-data.js?v=20261025a" defer></script>
+  <script src="xuhui-buildings-data.js?v=20261025a" defer></script>
+  <script src="xuhui-map.js?v=20261026c" defer></script>
+  <script src="diplomatic-globe.js?v=20261026b" defer></script>
+  <script src="inner-editorial.js?v=20261025a" defer></script>
+  <script src="home-effects.js?v=20261026a" defer></script>
+  <link rel="preconnect" href="https://static.cloudbase.net" crossorigin>
+  <script src="cloudbase-config.js?v=20261026b" defer></script>
+  <script src="translations.js?v=20261026k" defer></script>
+  <script src="script.js?v=20261026b" defer></script>
+  <script src="seat-query.js?v=20261026f" defer></script>
+  <script src="delegate-login-guide.js?v=20261026c" defer></script>
+  <script src="delegate-library.js?v=20261026c" defer></script>
+  <link rel="stylesheet" href="auth.css?v=20261023k">
+  <link rel="stylesheet" href="delegate-flat.css?v=20261026j">
+  <link rel="stylesheet" href="representative-theme.css?v=20261026b">
+  <script src="astra.js?v=20261024e" defer></script>
+  <link rel="canonical" href="https://sjtumuna.pages.dev/representative">
+</head>
+<body class="neptune-page">
+  <a class="skip-link" href="#main-content" data-i18n="common.skipContent">跳到正文</a>
+  <header class="site-header shell">
+    <a class="brand" href="index.html" aria-label="大会首页" data-i18n-aria-label="common.homeAria"><span class="brand-mark"><img src="assets/sjtu-seal-official.webp" width="2805" height="2806" alt=""></span><span class="association-logo header-association"><img src="assets/sjtumuna-logo-original.png" width="2100" height="1560" decoding="async" alt="SJTUMUNA"></span><span data-i18n="common.brand">上海交通大学南洋模拟联合国大会</span></a>
+    <div class="header-tools">
+      <nav class="site-nav" aria-label="主导航" data-i18n-aria-label="common.navAria">
+        <a href="index.html" data-i18n="common.navHome">首页</a>
+        <a href="committees.html" data-i18n="common.navCommittees">会场信息</a>
+        <a class="active" href="representative.html" data-i18n="common.navDelegate">代表界面</a>
+        <a href="about.html" data-i18n="common.navAbout">大会信息</a>
+        <a href="forum.html" data-i18n="common.navForum">论坛</a>
+        <a href="notice.html" data-i18n="common.navNotice">参会须知</a>
+      </nav>
+      <div class="language-switch" role="group" aria-label="选择语言" data-i18n-aria-label="common.languageAria"><button type="button" data-set-language="zh" aria-pressed="true">中文</button><button type="button" data-set-language="en" aria-pressed="false">English</button><div class="language-more"><button type="button" class="language-more-toggle" aria-label="更多语言" data-i18n-aria-label="common.moreLanguages" aria-haspopup="true" aria-expanded="false"><span aria-hidden="true">⌄</span></button><div class="language-menu" role="menu"><button type="button" role="menuitem" data-set-language="fr" lang="fr">Français</button><button type="button" role="menuitem" data-set-language="ru" lang="ru">Русский</button><button type="button" role="menuitem" data-set-language="ar" lang="ar">العربية</button><button type="button" role="menuitem" data-set-language="es" lang="es">Español</button><button type="button" role="menuitem" data-set-language="ko" lang="ko">한국어</button><button type="button" role="menuitem" data-set-language="ja" lang="ja">日本語</button><button type="button" role="menuitem" data-set-language="de" lang="de">Deutsch</button><button type="button" role="menuitem" data-set-language="pt" lang="pt">Português</button></div></div></div>
+    </div>
+  </header>
+  <main class="shell page-main" id="main-content" tabindex="-1">
+    <section class="delegate-library" id="background-files" aria-labelledby="background-heading">
+      <div class="delegate-login-guide" id="delegate-login-guide" data-state="login">
+        <span class="delegate-login-guide-lock" aria-hidden="true"><svg class="lock-closed" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10" width="15" height="10.5" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/><path d="M12 14.5v2.2"/></svg><svg class="lock-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4.5" y="10" width="15" height="10.5" rx="2"/><path d="M8 10V7a4 4 0 0 1 7.7-1.5"/><path d="M12 14.5v2.2"/></svg></span>
+        <div class="delegate-login-guide-copy">
+          <p class="eyebrow" data-i18n="login.guideKicker">DELEGATE ACCESS · 2026</p>
+          <h1 id="background-heading" data-i18n="login.guideTitle">代表登录</h1>
+          <p class="delegate-login-guide-body" data-i18n="login.guideBody">使用姓名和代表编号登录，查看你的席位、学校和缴费状态。</p>
+          <p class="delegate-login-guide-note" data-i18n="login.guideNote">登录后只返回与你账号匹配的个人席位。</p>
+        </div>
+        <div class="delegate-login-guide-actions">
+          <button class="delegate-login-guide-button" id="delegate-login-guide-button" type="button" data-i18n="login.guideAction">登录查看席位</button>
+        </div>
+      </div>
+      <p class="delegate-login-guide-footnote"><span>2026 SJTUMUNC · DELEGATE ACCESS</span></p>
+
+      <div class="delegate-resources">
+        <div class="delegate-resources-heading" id="resources-heading">
+          <div><p class="eyebrow">ACADEMIC RESOURCES</p><h2 data-i18n="library.resourcesHeading">会场学术资源</h2></div>
+          <p data-i18n="library.resourcesIntro">选择会场，展开学术流程、培训视频与文件下载。</p>
+        </div>
+        <div class="delegate-choices" role="group" aria-labelledby="resources-heading">
+<button type="button" class="delegate-choice" data-committee="01" aria-expanded="false" aria-controls="panel-ga2">
+      <span class="choice-number">01 / GA2</span><span class="choice-plus" aria-hidden="true">+</span>
+      <span class="choice-title" data-i18n="library.ga2">联合国大会第二委员会</span>
+      <span class="choice-topic" data-i18n="library.ga2Topic">半导体价值链与工业发展合作</span>
+      <span class="choice-action" data-i18n="library.choose">查看学术流程与文件下载 ↗</span>
+    </button>
+<button type="button" class="delegate-choice" data-committee="02" aria-expanded="false" aria-controls="panel-ecosoc">
+      <span class="choice-number">02 / ECOSOC</span><span class="choice-plus" aria-hidden="true">+</span>
+      <span class="choice-title" data-i18n="library.ecosoc">联合国经济及社会理事会</span>
+      <span class="choice-topic" data-i18n="library.ecosocTopic">改善萨赫勒地区治理状况</span>
+      <span class="choice-action" data-i18n="library.choose">查看学术流程与文件下载 ↗</span>
+    </button>
+<button type="button" class="delegate-choice" data-committee="03" aria-expanded="false" aria-controls="panel-london">
+      <span class="choice-number">03 / 1912</span><span class="choice-plus" aria-hidden="true">+</span>
+      <span class="choice-title" data-i18n="library.london">1912年伦敦会议</span>
+      <span class="choice-topic" data-i18n="library.londonTopic">巴尔干战争和平谈判与地区领土仲裁</span>
+      <span class="choice-action" data-i18n="library.choose">查看学术流程与文件下载 ↗</span>
+    </button>
+<button type="button" class="delegate-choice" data-committee="04" aria-expanded="false" aria-controls="panel-unodc">
+      <span class="choice-number">04 / UNODC</span><span class="choice-plus" aria-hidden="true">+</span>
+      <span class="choice-title" data-i18n="library.unodc">联合国毒品和犯罪问题办公室</span>
+      <span class="choice-topic" data-i18n="library.unodcTopic">替代发展与可持续治理</span>
+      <span class="choice-action" data-i18n="library.choose">查看学术流程与文件下载 ↗</span>
+    </button>
+      </div>
+<div id="academic-procedures">
+<section class="delegate-panel delegate-document" data-committee="01" id="panel-ga2" aria-labelledby="panel-title-ga2" hidden>
+      <div class="delegate-panel-heading"><h2 id="panel-title-ga2" data-i18n="library.ga2">联合国大会第二委员会</h2><button class="delegate-panel-close" type="button" data-i18n-aria-label="library.close" aria-label="收起会场">×</button></div>
+      <div class="committee-contact committee-contact-ga2">
+        <div class="committee-contact-copy"><span class="committee-contact-label">01 · GA2 · WECHAT</span><p class="committee-contact-prompt" data-i18n="library.wechatGroupPrompt">请本会场代表加入会场微信群</p></div>
+        <img src="assets/academic-files/ga2-qq-group.png" width="960" height="960" loading="lazy" alt="联合国大会第二委员会会场微信群二维码" data-i18n-alt="library.qrGa2Alt">
+      </div>
+      <figure class="procedure-frame" tabindex="0" aria-label="联合国大会第二委员会学术流程图" data-i18n-aria-label="library.procedureAlt"><img src="assets/procedures/ga2-procedure.png" width="3600" height="1200" alt="联合国大会第二委员会学术流程图" loading="lazy" data-i18n-alt="library.procedureAlt"></figure>
+      <p class="procedure-hint" data-i18n="library.scrollHint">小屏幕可左右滑动查看完整流程图。</p>
+      <div class="procedure-files"><a href="assets/procedures/ga2-procedure.png" download="联合国大会第二委员会学术流程.png" data-i18n="library.flowDownload">下载高清流程图 ↗</a></div>
+      <div class="academic-download-grid"><a class="academic-download" data-file-label="library.materialBG" data-i18n-download="library.ga2File" href="assets/background-files/GA2_Background_File.pdf" download="联合国大会第二委员会背景文件.pdf" type="application/pdf"><span class="academic-file-type">BG</span><strong data-i18n="library.materialBG">背景文件</strong><span class="academic-file-download"><span data-i18n="library.pdfDownload">PDF · 下载</span> <span aria-hidden="true">↓</span></span></a><a class="academic-download" data-file-label="library.materialTest" data-i18n-download="library.ga2TestFile" href="assets/academic-files/%E8%81%94%E5%90%88%E5%9B%BD%E5%A4%A7%E4%BC%9A%E7%AC%AC%E4%BA%8C%E5%A7%94%E5%91%98%E4%BC%9A%E5%AD%A6%E6%9C%AF%E6%B5%8B%E8%AF%95.pdf" download="联合国大会第二委员会学术测试.pdf" type="application/pdf"><span class="academic-file-type">TEST</span><strong data-i18n="library.materialTest">学术测试</strong><span class="academic-file-download"><span data-i18n="library.pdfDownload">PDF · 下载</span> <span aria-hidden="true">↓</span></span></a><a class="academic-download" data-file-label="library.materialRules" data-i18n-download="library.ga2RulesFile" href="assets/academic-files/%E8%81%94%E5%90%88%E5%9B%BD%E5%A4%A7%E4%BC%9A%E7%AC%AC%E4%BA%8C%E5%A7%94%E5%91%98%E4%BC%9A%E4%BC%9A%E8%AE%AE%E8%A7%84%E5%88%99.pdf" download="联合国大会第二委员会会议规则.pdf" type="application/pdf"><span class="academic-file-type">ROP</span><strong data-i18n="library.materialRules">会议规则</strong><span class="academic-file-download"><span data-i18n="library.pdfDownload">PDF · 下载</span> <span aria-hidden="true">↓</span></span></a></div>
+    </section>
+<section class="delegate-panel delegate-document" data-committee="02" id="panel-ecosoc" aria-labelledby="panel-title-ecosoc" hidden>
+      <div class="delegate-panel-heading"><h2 id="panel-title-ecosoc" data-i18n="library.ecosoc">联合国经济及社会理事会</h2><button class="delegate-panel-close" type="button" data-i18n-aria-label="library.close" aria-label="收起会场">×</button></div>
+      <div class="academic-video">
+        <div class="academic-video-heading"><span data-i18n="library.trainingTitle">在线观看学术培训</span><small data-i18n="library.ecosocTrainingNote1">联合国经济及社会理事会 · 学术培训录像（一）</small></div>
+        <video controls playsinline preload="metadata">
+          <source src="assets/academic-files/ecosoc-academic-training-1.mp4" type="video/mp4">
+          <a href="assets/academic-files/ecosoc-academic-training-1.mp4" download data-i18n="library.trainingFallback">如果你的浏览器无法播放，可下载视频。</a>
+        </video>
+      </div>
+      <div class="academic-video">
+        <div class="academic-video-heading"><span data-i18n="library.trainingTitle">在线观看学术培训</span><small data-i18n="library.ecosocTrainingNote2">联合国经济及社会理事会 · 学术培训录像（二）</small></div>
+        <video controls playsinline preload="metadata">
+          <source src="assets/academic-files/ecosoc-academic-training.mp4" type="video/mp4">
+          <a href="assets/academic-files/ecosoc-academic-training.mp4" download data-i18n="library.trainingFallback">如果你的浏览器无法播放，可下载视频。</a>
+        </video>
+      </div>
+      <figure class="procedure-frame" tabindex="0" aria-label="联合国经济及社会理事会学术流程图" data-i18n-aria-label="library.procedureAlt"><img src="assets/procedures/ecosoc-procedure.png" width="3600" height="1200" alt="联合国经济及社会理事会学术流程图" loading="lazy" data-i18n-alt="library.procedureAlt"></figure>
+      <p class="procedure-hint" data-i18n="library.scrollHint">小屏幕可左右滑动查看完整流程图。</p>
+      <div class="procedure-files"><a href="assets/procedures/ecosoc-procedure.png" download="联合国经济及社会理事会学术流程.png" data-i18n="library.flowDownload">下载高清流程图 ↗</a></div>
+      <div class="committee-contact">
+        <div class="committee-contact-copy"><span class="committee-contact-label">02 · ECOSOC · QQ</span><p class="committee-contact-prompt" data-i18n="library.qqGroupPrompt">请本会场代表加入会场QQ群</p></div>
+        <img src="assets/academic-files/ecosoc-qq-group.png" width="960" height="960" loading="lazy" alt="联合国经济及社会理事会会场QQ群二维码" data-i18n-alt="library.qrEcosocAlt">
+      </div>
+      <div class="academic-download-grid"><a class="academic-download" data-file-label="library.materialBG" data-i18n-download="library.ecosocFile" href="assets/background-files/%E8%81%94%E5%90%88%E5%9B%BD%E7%BB%8F%E6%B5%8E%E5%8F%8A%E7%A4%BE%E4%BC%9A%E7%90%86%E4%BA%8B%E4%BC%9A%E8%83%8C%E6%99%AF%E6%96%87%E4%BB%B6.pdf" download="联合国经济及社会理事会背景文件.pdf" type="application/pdf"><span class="academic-file-type">BG</span><strong data-i18n="library.materialBG">背景文件</strong><span class="academic-file-download"><span data-i18n="library.pdfDownload">PDF · 下载</span> <span aria-hidden="true">↓</span></span></a><a class="academic-download" data-file-label="library.materialTest" data-i18n-download="library.ecosocTestFile" href="assets/academic-files/%E8%81%94%E5%90%88%E5%9B%BD%E7%BB%8F%E6%B5%8E%E5%8F%8A%E7%A4%BE%E4%BC%9A%E7%90%86%E4%BA%8B%E4%BC%9A%E5%AD%A6%E6%9C%AF%E6%B5%8B%E8%AF%95.pdf" download="联合国经济及社会理事会学术测试.pdf" type="application/pdf"><span class="academic-file-type">TEST</span><strong data-i18n="library.materialTest">学术测试</strong><span class="academic-file-download"><span data-i18n="library.pdfDownload">PDF · 下载</span> <span aria-hidden="true">↓</span></span></a><a class="academic-download" data-file-label="library.materialRules" data-i18n-download="library.ecosocRulesFile" href="assets/academic-files/联合国经济及社会理事会会议规则及文件范例.pdf?v=20261026ecosoc" download="联合国经济及社会理事会会议规则及文件范例.pdf" type="application/pdf"><span class="academic-file-type">ROP</span><strong data-i18n="library.ecosocRulesSamples">会议规则与文件范例</strong><span class="academic-file-download"><span data-i18n="library.pdfDownload">PDF · 下载</span> <span aria-hidden="true">↓</span></span></a></div>
+    </section>
+<section class="delegate-panel delegate-document" data-committee="03" id="panel-london" aria-labelledby="panel-title-london" hidden>
+      <div class="delegate-panel-heading"><h2 id="panel-title-london" data-i18n="library.london">1912年伦敦会议</h2><button class="delegate-panel-close" type="button" data-i18n-aria-label="library.close" aria-label="收起会场">×</button></div>
+              <div class="academic-video">
+          <div class="academic-video-heading"><span data-i18n="library.trainingTitle">在线观看学术培训</span><small data-i18n="library.trainingNote">1912年伦敦会议 · 学术培训录像</small></div>
+          <video controls playsinline preload="metadata">
+            <source src="assets/academic-files/1912-academic-training.mp4" type="video/mp4">
+            <a href="assets/academic-files/1912-academic-training.mp4" download data-i18n="library.trainingFallback">如果你的浏览器无法播放，可下载视频。</a>
+          </video>
+        </div>
+        <div class="committee-contact">
+          <div class="committee-contact-copy">
+            <span class="committee-contact-label">1912 · QQ</span>
+            <p class="committee-contact-prompt" data-i18n="library.qqGroupPrompt">请本会场代表加入会场QQ群</p>
+            <p data-i18n="library.committeeContact">军咨请在QQ群中联系委员会负责人获取。</p>
+          </div>
+          <img src="assets/academic-files/1912-qq-group.png" width="930" height="900" loading="lazy" alt="1912会场QQ群二维码" data-i18n-alt="library.qrLondonAlt">
+        </div>
+<figure class="procedure-frame" tabindex="0" aria-label="1912年伦敦会议学术流程图" data-i18n-aria-label="library.procedureAlt"><img src="assets/procedures/london-procedure.png" width="3600" height="1200" alt="1912年伦敦会议学术流程图" loading="lazy" data-i18n-alt="library.procedureAlt"></figure>
+      <p class="procedure-hint" data-i18n="library.scrollHint">小屏幕可左右滑动查看完整流程图。</p>
+      <div class="procedure-files"><a href="assets/procedures/london-procedure.png" download="1912年伦敦会议学术流程.png" data-i18n="library.flowDownload">下载高清流程图 ↗</a></div>
+      <div class="academic-download-grid"><a class="academic-download" data-file-label="library.materialBG" data-i18n-download="library.londonFile" href="assets/background-files/1912年伦敦会议背景文件.pdf" download="1912年伦敦会议背景文件.pdf" type="application/pdf"><span class="academic-file-type">BG</span><strong data-i18n="library.materialBG">背景文件</strong><span class="academic-file-download"><span data-i18n="library.pdfDownload">PDF · 下载</span> <span aria-hidden="true">↓</span></span></a><a class="academic-download" data-file-label="library.materialBG2" data-i18n-download="library.londonBg2File" href="assets/background-files/1912年伦敦会议第二轮背景文件.pdf?v=20261026img" download="1912年伦敦会议第二轮背景文件.pdf" type="application/pdf"><span class="academic-file-type">BG2</span><strong data-i18n="library.materialBG2">第二轮背景文件</strong><span class="academic-file-download"><span data-i18n="library.pdfDownload">PDF · 下载</span> <span aria-hidden="true">↓</span></span></a><a class="academic-download" data-file-label="library.materialRules" data-i18n-download="library.londonRulesFile" href="assets/academic-files/1912年伦敦会议议事规则.pdf" download="1912年伦敦会议议事规则.pdf" type="application/pdf"><span class="academic-file-type">ROP</span><strong data-i18n="library.materialRules">会议规则</strong><span class="academic-file-download"><span data-i18n="library.pdfDownload">PDF · 下载</span> <span aria-hidden="true">↓</span></span></a><a class="academic-download" data-file-label="library.materialTest" data-i18n-download="library.londonTestFile" href="assets/academic-files/1912%E5%B9%B4%E4%BC%A6%E6%95%A6%E4%BC%9A%E8%AE%AE%E5%AD%A6%E6%9C%AF%E6%B5%8B%E8%AF%95.pdf" download="1912年伦敦会议学术测试.pdf" type="application/pdf"><span class="academic-file-type">TEST</span><strong data-i18n="library.materialTest">学术测试</strong><span class="academic-file-download"><span data-i18n="library.pdfDownload">PDF · 下载</span> <span aria-hidden="true">↓</span></span></a></div>
+    </section>
+<section class="delegate-panel delegate-document" data-committee="04" id="panel-unodc" aria-labelledby="panel-title-unodc" hidden>
+      <div class="delegate-panel-heading"><h2 id="panel-title-unodc" data-i18n="library.unodc">联合国毒品和犯罪问题办公室</h2><button class="delegate-panel-close" type="button" data-i18n-aria-label="library.close" aria-label="收起会场">×</button></div>
+      <div class="academic-video">
+        <div class="academic-video-heading"><span data-i18n="library.trainingTitle">在线观看学术培训</span><small data-i18n="library.unodcTrainingNote">联合国毒品和犯罪问题办公室 · 学术培训录像</small></div>
+        <video controls playsinline preload="metadata">
+          <source src="assets/academic-files/unodc-academic-training.mp4" type="video/mp4">
+          <a href="assets/academic-files/unodc-academic-training.mp4" download data-i18n="library.trainingFallback">如果你的浏览器无法播放，可下载视频。</a>
+        </video>
+      </div>
+      <figure class="procedure-frame" tabindex="0" aria-label="联合国毒品和犯罪问题办公室学术流程图" data-i18n-aria-label="library.procedureAlt"><img src="assets/procedures/unodc-procedure.png" width="3600" height="1200" alt="联合国毒品和犯罪问题办公室学术流程图" loading="lazy" data-i18n-alt="library.procedureAlt"></figure>
+      <p class="procedure-hint" data-i18n="library.scrollHint">小屏幕可左右滑动查看完整流程图。</p>
+      <div class="procedure-files"><a href="assets/procedures/unodc-procedure.png" download="联合国毒品和犯罪问题办公室学术流程.png" data-i18n="library.flowDownload">下载高清流程图 ↗</a></div>
+      <div class="committee-contact">
+        <div class="committee-contact-copy"><span class="committee-contact-label">04 · UNODC · WECHAT</span><p class="committee-contact-prompt" data-i18n="library.wechatGroupPrompt">请本会场代表加入会场微信群</p></div>
+        <img src="assets/academic-files/unodc-wechat-group.png" width="960" height="960" loading="lazy" alt="联合国毒品和犯罪问题办公室会场微信群二维码" data-i18n-alt="library.qrUnodcAlt">
+      </div>
+      <div class="academic-download-grid"><a class="academic-download" data-file-label="library.materialBG" data-i18n-download="library.unodcFile" href="assets/background-files/UNODC_Background_File.pdf" download="联合国毒品和犯罪问题办公室背景文件.pdf" type="application/pdf"><span class="academic-file-type">BG</span><strong data-i18n="library.materialBG">背景文件</strong><span class="academic-file-download"><span data-i18n="library.pdfDownload">PDF · 下载</span> <span aria-hidden="true">↓</span></span></a><a class="academic-download" data-file-label="library.materialTest" data-i18n-download="library.unodcTestFile" href="assets/academic-files/UN%20Office%20on%20Drugs%20and%20Crime%20Academic%20Test.pdf" download="联合国毒品和犯罪问题办公室学术测试.pdf" type="application/pdf"><span class="academic-file-type">TEST</span><strong data-i18n="library.materialTest">学术测试</strong><span class="academic-file-download"><span data-i18n="library.pdfDownload">PDF · 下载</span> <span aria-hidden="true">↓</span></span></a><a class="academic-download" data-file-label="library.materialRules" data-i18n-download="library.unodcRulesFile" href="assets/academic-files/UN%20Office%20on%20Drugs%20and%20Crime%20Rules%20of%20Procedure.pdf" download="联合国毒品和犯罪问题办公室会议规则.pdf" type="application/pdf"><span class="academic-file-type">ROP</span><strong data-i18n="library.materialRules">会议规则</strong><span class="academic-file-download"><span data-i18n="library.pdfDownload">PDF · 下载</span> <span aria-hidden="true">↓</span></span></a></div>
+    </section>
+</div>
+      </div>
+    </section>
+
+  <section class="section-block seat-section" id="seat-allocation" aria-labelledby="seat-query-title">
+  <div class="section-heading"><div><p class="eyebrow">SEAT ALLOCATION</p><h2 id="seat-query-title" data-i18n="seat.title">查询席位分配</h2></div><span class="section-mark">QUERY</span></div>
+  <div class="seat-query-layout">
+    <form class="seat-card seat-form" id="seat-query-form" novalidate>
+      <span class="seat-card-glow" aria-hidden="true"></span>
+      <div class="seat-form-head"><span class="seat-form-index">01</span><span class="seat-form-rule" aria-hidden="true"></span><span class="seat-form-code">DELEGATE ACCESS</span></div>
+      <div class="seat-auth-gate" id="seat-auth-gate">
+        <span class="seat-auth-lock" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>
+        <div class="seat-auth-copy"><strong data-i18n="seat.loginRequired">请登录后查询</strong><small data-i18n="seat.loginHint">登录后自动带出姓名和代表编号</small></div>
+        <button class="seat-auth-login" type="button" data-seat-login data-i18n="seat.loginAction">登录</button>
+      </div>
+      <div class="seat-field">
+        <span class="seat-field-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="8" r="3.4"/><path d="M5.5 19c.8-3.3 3.4-5 6.5-5s5.7 1.7 6.5 5"/></svg></span>
+        <div class="seat-field-body"><label for="seat-name" data-i18n="seat.name">姓名</label><input id="seat-name" name="name" autocomplete="name" required data-i18n-placeholder="seat.namePlaceholder" placeholder="请输入姓名"></div>
+        <span class="seat-field-line" aria-hidden="true"></span>
+      </div>
+      <div class="seat-field">
+        <span class="seat-field-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M9 4 7 20M17 4l-2 16M4.5 9h15M3.5 15h15"/></svg></span>
+        <div class="seat-field-body"><label for="seat-number" data-i18n="seat.number">代表编号</label><input id="seat-number" name="number" inputmode="numeric" required data-i18n-placeholder="seat.numberPlaceholder" placeholder="例如 0000001"></div>
+        <span class="seat-field-line" aria-hidden="true"></span>
+      </div>
+      <button class="seat-submit" type="submit">
+        <span class="seat-submit-label" data-i18n="seat.submit">查询</span>
+        <span class="seat-submit-arrow" aria-hidden="true">&rarr;</span>
+        <span class="seat-submit-spinner" aria-hidden="true"></span>
+      </button>
+      <div class="seat-notice" id="seat-notice" role="status" aria-live="polite"></div>
+    </form>
+    <aside class="seat-card seat-result" id="seat-result" data-state="idle" aria-live="polite">
+      <span class="seat-card-glow" aria-hidden="true"></span>
+      <div class="seat-result-idle" aria-hidden="true">
+        <span class="seat-seal"><span class="seat-seal-ring"></span><span class="seat-seal-core">SEAT</span></span>
+        <span class="seat-idle-code">SJTUMUNC &middot; 2026</span>
+      </div>
+      <div class="seat-result-body">
+        <div class="seat-result-top"><span class="seat-result-label" data-i18n="seat.resultTitle">席位分配结果</span><span class="seat-confirmed" data-i18n="seat.confirmed">已确认</span></div>
+        <div class="seat-committee" id="seat-result-committee"></div>
+        <div class="seat-name-big" id="seat-result-seat"></div>
+        <p class="seat-role" id="seat-result-role" hidden></p>
+        <div class="seat-meta">
+          <div><span data-i18n="seat.resultName">姓名</span><strong id="seat-result-name"></strong></div>
+          <div><span data-i18n="seat.resultNo">代表编号</span><strong class="seat-mono" id="seat-result-no"></strong></div>
+          <div class="seat-meta-school" id="seat-result-school-row"><span data-i18n="seat.school">学校</span><strong id="seat-result-school"></strong></div>
+        </div>
+        <div class="seat-status">
+          <div class="seat-payment"><span class="seat-status-label" data-i18n="seat.payment">缴费状态</span><span class="seat-payment-badge" id="seat-result-payment"></span></div>
+        </div>
+      </div>
+      <span class="seat-sheen" aria-hidden="true"></span>
+    </aside>
+  </div>
+</section>
+  </main>
+  
+<footer class="site-footer shell"><div class="footer-brand"><span class="association-logo"><img src="assets/sjtumuna-logo-original.png" width="2100" height="1560" loading="lazy" decoding="async" alt="SJTUMUNA"></span><div class="footer-brand-copy"><span data-i18n="common.brand">上海交通大学南洋模拟联合国大会</span><span class="footer-author"><span data-i18n="common.authorLabel">网站作者：</span><bdi>NateNye</bdi><br><span data-i18n="common.emailLabel">邮箱：</span><a href="mailto:natricknye@sjtu.edu.cn"><bdi>natricknye@sjtu.edu.cn</bdi></a></span></div></div><div class="footer-right"><div class="footer-contacts"><span><span data-i18n="common.qqLabel">QQ交流群：</span><bdi>583219861</bdi></span><a href="https://mp.weixin.qq.com/s/SiFgyaRmvLuihXEqrovayg" target="_blank" rel="noopener noreferrer"><span data-i18n="common.wechatAccount">交大模联微信公众号</span> <span aria-hidden="true">↗</span></a><a href="mailto:sjtumun@163.com">sjtumun@163.com</a></div><span class="footer-copyright"><span class="footer-credit">© 2026 <span class="footer-org">上海交通大学模拟联合国协会</span></span><span class="footer-icp"> · 沪交ICP备20260305</span></span></div></footer>
+
+<link rel="stylesheet" href="survey-entry.css?v=20261026c">
+<script src="survey-config.js?v=20261026c"></script>
+<script src="survey-entry.js?v=20261026c"></script>
+</body>
+</html>

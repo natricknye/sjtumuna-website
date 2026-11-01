@@ -1,0 +1,21 @@
+/* A globe flight bridges documents without a sliding colour curtain. */
+html.orbit-arrival-pending body > :is(header,main,footer,.home-intro) { visibility: hidden; }
+.route-orbit { position: fixed; inset: 0; z-index: 210; display: grid; place-items: center; overflow: hidden; pointer-events: auto; }
+.route-orbit-backdrop { position: absolute; inset: 0; opacity: 0; background: var(--orbit-background,#f5ece6); }
+.route-orbit-ball { position: relative; width: min(var(--route-size,267px),75vw,55vh); aspect-ratio: 1; border:0; background:none; box-shadow:none; }
+.route-orbit-ball img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.route-orbit.is-arriving { pointer-events: none; }
+.route-orbit.is-arriving .route-orbit-backdrop { animation: orbit-backdrop-out .5s ease forwards; }
+.route-orbit.is-arriving .route-orbit-ball { animation: orbit-flight-out .58s cubic-bezier(.55,.05,.7,.5) forwards; }
+.route-orbit.is-arriving .route-orbit-ball img { animation: orbit-spin-out .58s ease-in forwards; }
+.orbit-departing > :is(.site-header,main,.site-footer) { opacity: 0; transform: translate3d(0,-8px,0); transition: opacity .28s ease,transform .38s ease; }
+.orbit-revealing > :is(.site-header,main,.site-footer) { animation: orbit-content-in .55s .06s cubic-bezier(.16,1,.3,1) both; }
+@keyframes orbit-flight-out { 0% { opacity: 1; transform: translate3d(0,0,0) scale(1); } 45% { opacity: .8; } 100% { opacity: 0; transform: translate3d(72vw,60vh,0) scale(.7) rotate(8deg); } }
+@keyframes orbit-spin-out { from { transform: rotate(18deg); } to { transform: rotate(85deg); } }
+@keyframes orbit-backdrop-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes orbit-content-in { from { opacity: 0; transform: translate3d(0,10px,0); } to { opacity: 1; transform: translate3d(0,0,0); } }
+@media (prefers-reduced-motion: reduce) {
+  .route-orbit { display: none; }
+  html.orbit-arrival-pending body > :is(header,main,footer,.home-intro) { visibility: visible; }
+  .orbit-revealing > :is(.site-header,main,.site-footer) { animation: none; }
+}

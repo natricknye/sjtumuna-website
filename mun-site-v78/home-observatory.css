@@ -1,0 +1,71 @@
+/* Layout-only observatory: the existing atlas and solar clock remain live. */
+.home-page .shell { width:min(1320px,calc(100% - 80px)); }
+.home-page .site-header { min-height:82px; flex-wrap:nowrap; gap:20px; position:relative; }
+.home-page .header-tools { width:auto; margin:0; padding:0; border:0; gap:20px; }
+.home-page .brand { font-size:14px; gap:12px; }
+.home-page .site-nav a { padding:9px 10px; font-size:12px; white-space:nowrap; }
+.home-page #main-content { min-height:calc(100svh - 82px); isolation:isolate; }
+.home-page .home-hero { position:absolute; inset:0 0 auto; display:flex; justify-content:space-between; align-items:flex-start; gap:30px; padding:42px 0 0; border:0; overflow:visible; pointer-events:none; z-index:4; }
+.home-page .home-hero-copy { max-width:70%; }
+.home-page .home-hero .eyebrow { font-size:10px; letter-spacing:.25em; margin:0 0 12px; }
+.home-page .home-hero h1 { max-width:none; margin:0; font-family:'Noto Serif SC','Songti SC','SimSun',serif; font-size:clamp(32px,3.7vw,54px); line-height:1.22; letter-spacing:-.025em; font-weight:400; text-shadow:none; color:var(--fx-accent); }
+.home-page .home-hero::after { display:none; }
+.home-page .home-hero-watermark { top:15px; right:auto; left:-35px; width:340px; opacity:.045; }
+.home-page .home-hero-watermark::before,.home-page .home-hero-watermark::after { display:none; }
+.home-page .home-hero-watermark img { width:100%; height:100%; }
+.home-page .conference-countdown { display:flex; flex-direction:column-reverse; align-items:flex-end; align-self:flex-start; min-height:0; padding:7px 0 0 24px; border:0; border-left:1px solid var(--line); text-align:right; }
+.home-page .countdown-value { min-height:0; justify-content:flex-end; gap:7px; }
+.home-page .countdown-value strong { font-size:76px; line-height:.95; }
+.home-page .conference-countdown .countdown-label { margin:12px 0 0; font-size:11px; letter-spacing:.1em; }
+.home-page .home-orbit-scene { margin:0; padding:0; isolation:auto; }
+.home-page .home-orbit-layout { padding:0; height:calc(100svh - 82px); min-height:0; display:flex; align-items:center; justify-content:center; }
+.home-page .home-orbit-layout .diplomatic-world { width:min(1140px,calc((100svh - 175px) / .86)); max-width:100%; flex:none; margin:0 auto; }
+.home-page .globe-north,.home-page .globe-register { display:none; }
+.home-page .globe-console { display:none; bottom:7%; opacity:.7; }
+.home-page .globe-instruction { font-size:10px; letter-spacing:.12em; }
+.home-page .globe-instruction span { display:none; }
+.home-page .home-event-overview { position:absolute; z-index:5; bottom:22px; left:0; right:0; display:flex; gap:16px 28px; padding:0; background:none; pointer-events:none; }
+.home-page .home-event-overview > div { gap:0; }
+.home-page .home-event-overview > div + div { border-left:1px solid var(--line); padding-left:28px; }
+.home-page .home-event-overview .event-label { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+.home-page .home-event-overview strong { color:var(--ink); font-size:14px; font-weight:400; letter-spacing:.06em; }
+.home-page .site-footer { margin-top:35px; }
+.home-page .city-pin::before { box-shadow:none; }
+@media(max-width:1200px) {
+ .home-page .site-header { flex-wrap:wrap; gap:0; }
+ .home-page .header-tools { width:100%; padding-top:8px; margin-top:8px; justify-content:space-between; }
+ .home-page .home-hero { padding-top:28px; }
+ .home-page .home-hero h1 { font-size:40px; }
+ .home-page .home-orbit-layout { height:calc(100svh - 125px); }
+ .home-page .home-orbit-layout .diplomatic-world { width:min(100%,calc((100svh - 205px) / .86)); }
+ .home-page #main-content { min-height:calc(100svh - 125px); }
+}
+@media(max-width:720px) {
+ .home-page .shell { width:calc(100% - 32px); }
+ .home-page .site-header { padding:12px 0 8px; gap:0; }
+ .home-page .brand { font-size:11px; gap:8px; }
+ .home-page .brand-mark { flex-basis:28px; width:28px; height:28px; }
+ .home-page .header-tools { gap:8px; }
+ .home-page .site-nav { min-width:0; overflow-x:auto; }
+ .home-page .site-nav a { font-size:11px; padding:8px; }
+ .home-page .language-switch button { padding:0 6px; font-size:10px; }
+ .home-page .home-hero { position:relative; padding:26px 0 0; gap:12px; min-height:132px; }
+ .home-page .home-hero-copy { max-width:calc(100% - 72px); }
+ .home-page .home-hero .eyebrow { font-size:7px; letter-spacing:.14em; margin-bottom:10px; }
+ .home-page .home-hero h1 { font-size:clamp(23px,5.6vw,39px); line-height:1.35; }
+ .home-page .home-hero-watermark { top:0; left:-14px; width:195px; opacity:.06; }
+ .home-page .conference-countdown { padding:2px 0 0 12px; margin-top:13px; }
+ .home-page .countdown-value strong { font-size:44px; }
+ .home-page .countdown-value span { font-size:10px; }
+ .home-page .conference-countdown .countdown-label { max-width:6em; font-size:8px; margin-top:8px; }
+ .home-page .home-orbit-layout { height:auto; min-height:0; padding:0 0 22px; }
+ .home-page .home-orbit-layout .diplomatic-world { width:calc(100% + 24px); max-width:none; margin:0 -12px; }
+ .home-page .globe-console { display:block; bottom:0; }
+ .home-page .globe-instruction { font-size:9px; }
+ .home-page .home-event-overview { position:relative; bottom:auto; margin:8px 0 0; padding:8px 0 22px; gap:8px 14px; }
+ .home-page .home-event-overview > div + div { padding-left:0; border:0; }
+ .home-page .home-event-overview > div:nth-child(2) { order:3; flex-basis:100%; }
+ .home-page .home-event-overview strong { font-size:10px; letter-spacing:.02em; }
+ .home-page #main-content { min-height:0; }
+ .home-page .site-footer { margin-top:15px; }
+}

@@ -1,0 +1,90 @@
+/* Notice page only: match the editorial body scale for observer regulations.
+   The original full-width 972px line made the same 15px type feel much larger;
+   keep the body font size but cap the measure to the page's reading column. */
+#notice-content .observer-regulations .observer-rules-title {
+  margin: 0 0 20px;
+  font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.9;
+  max-width: 48em;
+  color: var(--muted, #716365);
+}
+
+#notice-content .observer-regulations .observer-rule-section {
+  margin: 22px 0 0;
+  font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 2.1;
+  color: var(--muted, #716365);
+}
+
+#notice-content .observer-regulations .observer-rule-section h4 {
+  margin: 0 0 10px;
+  font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.7;
+  color: var(--ink, #26191a);
+}
+
+#notice-content .observer-regulations .observer-rule-section ol {
+  max-width: 65ch;
+  padding-left: 1.55em;
+}
+
+#notice-content .observer-regulations .observer-rule-section li {
+  margin: 0 0 13px;
+  padding-left: 0.3em;
+  font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 2.1;
+  color: var(--muted, #716365);
+}
+
+#notice-content .observer-regulations .observer-rule-section p {
+  max-width: 65ch;
+  margin: 0 0 13px;
+  font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 2.1;
+  color: var(--muted, #716365);
+}
+
+#notice-content .observer-regulations .observer-rule-section .observer-fee {
+  margin: 10px 0;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.8;
+  color: var(--ink, #26191a);
+}
+
+@media (max-width: 720px) {
+  #notice-content .observer-regulations .observer-rules-title {
+    margin-bottom: 16px;
+  }
+
+  #notice-content .observer-regulations .observer-rule-section {
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 2.1;
+  }
+
+  #notice-content .observer-regulations .observer-rule-section ol,
+  #notice-content .observer-regulations .observer-rule-section p {
+    max-width: none;
+  }
+
+  #notice-content .observer-regulations .observer-rule-section li {
+    font-size: 14px;
+    line-height: 2.1;
+  }
+
+  #notice-content .observer-regulations .observer-rule-section p {
+    font-size: 14px;
+    line-height: 2.1;
+  }
+}

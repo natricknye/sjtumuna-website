@@ -1,0 +1,329 @@
+/* ── Astra inline entry (notice page) ───────────────────────────── */
+.astra-inline {
+  --astra-entry-size: clamp(30px, 3.2vw, 48px);
+  --astra-entry-blue: #b9c9ff;
+  --astra-entry-lavender: #d8ccff;
+  --astra-entry-ink: color-mix(in srgb, var(--astra-entry-blue) 42%, var(--ink));
+  --astra-entry-star: color-mix(in srgb, var(--astra-entry-lavender) 42%, var(--ink));
+  max-width: 780px;
+  margin: 46px auto 22px;
+  padding: 0 20px;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(12px);
+  filter: blur(7px);
+  transition: opacity 1.1s ease, transform 1.1s cubic-bezier(.2, .8, .2, 1), filter 1.1s ease;
+}
+.astra-inline.is-visible {
+  opacity: 1;
+  transform: none;
+  filter: none;
+}
+.astra-inline-title {
+  margin: 0;
+  font-family: "Songti SC", "STSong", "Noto Serif SC", "SimSun", Georgia, serif;
+  font-size: var(--astra-entry-size);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: .24em;
+  text-indent: .24em;
+  color: var(--ink);
+  transform: scaleX(1.04);
+  transform-origin: center;
+  text-wrap: balance;
+}
+.astra-inline-latin {
+  margin: 16px auto 0;
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  font-size: var(--astra-entry-size);
+  font-weight: 400;
+  line-height: 1.1;
+  letter-spacing: .12em;
+  text-indent: .12em;
+  color: var(--astra-entry-ink);
+  text-wrap: balance;
+}
+.astra-inline-go {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: .8em;
+  margin-top: 24px;
+  padding: 0 0 10px;
+  border: 0;
+  background: none;
+  color: var(--astra-entry-ink);
+  font-family: "Songti SC", "STSong", "Noto Serif SC", "SimSun", Georgia, serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: .34em;
+  text-decoration: none;
+  transition: color .35s ease;
+}
+.astra-inline-go::before {
+  position: absolute;
+  right: -75px;
+  bottom: -2px;
+  width: 6px;
+  height: 6px;
+  background: var(--astra-entry-star);
+  clip-path: polygon(50% 0, 61% 39%, 100% 50%, 61% 61%, 50% 100%, 39% 61%, 0 50%, 39% 39%);
+  content: "";
+  opacity: .8;
+  filter: drop-shadow(0 0 3px rgba(198, 216, 255, .35));
+  transition: transform .45s cubic-bezier(.2, .8, .2, 1), opacity .35s ease, filter .35s ease;
+  pointer-events: none;
+}
+.astra-inline-go::after {
+  position: absolute;
+  right: -72px;
+  bottom: 0;
+  left: -72px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--astra-entry-blue) 42%, var(--ink)) 16%, var(--astra-entry-ink) 58%, var(--astra-entry-star) 100%);
+  content: "";
+  opacity: .75;
+  transition: opacity .35s ease, filter .35s ease;
+  pointer-events: none;
+}
+.astra-inline-go:hover,
+.astra-inline-go:focus-visible {
+  color: var(--ink);
+  outline: none;
+}
+.astra-inline-go:focus-visible {
+  outline: 1px solid color-mix(in srgb, var(--astra-entry-blue) 45%, var(--ink));
+  outline-offset: 8px;
+}
+.astra-inline-go:hover::after,
+.astra-inline-go:focus-visible::after {
+  opacity: 1;
+  filter: drop-shadow(0 0 4px rgba(190, 212, 255, .5));
+}
+.astra-inline-go:hover::before,
+.astra-inline-go:focus-visible::before {
+  opacity: 1;
+  transform: scale(1.3);
+  filter: drop-shadow(0 0 5px rgba(205, 220, 255, .9));
+}
+.astra-inline-go span {
+  display: inline-block;
+  color: var(--astra-entry-star);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.08em;
+  letter-spacing: 0;
+  line-height: 1;
+  transition: transform .35s cubic-bezier(.2, .8, .2, 1), color .35s ease, text-shadow .35s ease;
+}
+.astra-inline-go:hover span,
+.astra-inline-go:focus-visible span {
+  color: var(--ink);
+  transform: translateX(6px);
+  text-shadow: 0 0 10px rgba(196, 216, 255, .85);
+}
+
+/* ── Astra page: transparent chrome over a fullscreen star map ─── */
+.astra-page {
+  --paper: #050308;
+  --card: #0b0709;
+  --ink: #fff7f1;
+  --muted: #c9b7b2;
+  --line: rgba(255, 247, 241, .14);
+  --rose: rgba(167, 37, 48, .32);
+  --red: #c3323e;
+  --red-dark: #f7d5b9;
+  --gold: #bc8250;
+  --gold-text: #d8b184;
+  --fx-surface: #050308;
+  --fx-accent: #f7d5b9;
+  height: 100svh;
+  overflow: hidden;
+  background: #050308;
+  color: var(--ink);
+}
+
+/* the map is the page: it fills the viewport behind everything */
+.astra-main {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100svh;
+  margin: 0;
+  padding: 0;
+}
+.astra-stage {
+  position: absolute;
+  inset: 0;
+  height: 100svh;
+  overflow: hidden;
+  background: #000;
+}
+.astra-stage iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* floating Astra / 群星 wordmark, upper left, below the nav pill */
+.astra-wordmark {
+  --astra-wordmark-size: clamp(32px, 3.6vw, 52px);
+  position: fixed;
+  top: 84px;
+  left: 26px;
+  z-index: 28;
+  display: flex;
+  gap: 18px;
+  align-items: baseline;
+  pointer-events: none;
+  animation: astra-wordmark-float 7s ease-in-out infinite;
+  transition: opacity .3s ease, visibility .3s ease;
+}
+.astra-wordmark-latin {
+  display: inline-block;
+  font-family: "Bahnschrift Light", Bahnschrift, "Avenir Next", "Segoe UI Light", "Helvetica Neue", Arial, sans-serif;
+  font-size: calc(var(--astra-wordmark-size) * 1.02);
+  font-weight: 300;
+  font-stretch: 90%;
+  line-height: .84;
+  letter-spacing: .16em;
+  transform: scaleX(.92) scaleY(1.04);
+  transform-origin: left bottom;
+  background: linear-gradient(180deg, #fff 0%, #e7edff 48%, #9fb6e8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 18px rgba(185, 201, 255, .2));
+}
+.astra-wordmark-cn {
+  font-family: "Songti SC", "STSong", "Noto Serif SC", "SimSun", serif;
+  font-size: var(--astra-wordmark-size);
+  line-height: 1;
+  letter-spacing: .18em;
+  text-indent: .18em;
+  background: linear-gradient(180deg, #fff7f1 0%, #dfe7ff 55%, #a9bee9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 18px rgba(185, 201, 255, .18));
+}
+.astra-about-open .astra-wordmark,
+.astra-about-open .site-header,
+.astra-about-open .site-footer {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.astra-page .site-header,
+.astra-page .site-footer { transition: opacity .25s ease, visibility .25s ease; }
+@keyframes astra-wordmark-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+/* top chrome: a floating nav pill at the top right, no header bar */
+.astra-page .site-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 30;
+  display: flex;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 18px 24px;
+  align-items: flex-start;
+  justify-content: flex-end;
+  border: 0;
+  background: linear-gradient(180deg, rgba(5, 3, 8, .5), transparent);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  pointer-events: none;
+}
+.astra-page .brand { display: none; }
+.astra-page .header-tools {
+  width: auto;
+  max-width: calc(100vw - 32px);
+  margin: 0;
+  padding: 6px 8px;
+  gap: 8px;
+  border: 1px solid rgba(255, 247, 241, .16);
+  border-radius: 999px;
+  background: rgba(5, 3, 8, .66);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  pointer-events: auto;
+}
+.astra-page .site-nav { overflow-x: auto; scrollbar-width: none; }
+.astra-page .site-nav::-webkit-scrollbar { display: none; }
+.astra-page .site-nav a { color: #c9b7b2; white-space: nowrap; }
+.astra-page .site-nav a:hover { color: #fff7f1; background: rgba(167, 37, 48, .45); }
+.astra-page .site-nav a.active { color: #fff7f1; background: rgba(167, 37, 48, .62); }
+.astra-page .language-switch {
+  flex: none;
+  background: rgba(11, 7, 9, .85);
+  border-color: rgba(255, 247, 241, .18);
+}
+.astra-page .language-switch button { color: #c9b7b2; }
+.astra-page .language-switch button:hover { color: #fff7f1; background: rgba(167, 37, 48, .45); }
+.astra-page .language-switch button.selected { color: #fff7f1; background: #a72530; }
+.astra-page .language-menu {
+  background: #120b0e;
+  border-color: rgba(255, 247, 241, .18);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, .55);
+}
+.astra-page .language-menu button { color: #e8d7d2; }
+.astra-page .language-menu button:hover { color: #fff7f1; background: rgba(167, 37, 48, .4); }
+
+/* footer printed over the bottom of the map */
+.astra-page .site-footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 25;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 18px 28px 22px;
+  border: 0;
+  background: linear-gradient(0deg, rgba(5, 3, 8, .96) 0%, rgba(5, 3, 8, .74) 58%, transparent 100%);
+  color: #c9b7b2;
+  pointer-events: none;
+}
+.astra-page .site-footer a { pointer-events: auto; }
+.astra-page .site-footer a:hover { color: #fff7f1; }
+.astra-page .site-footer .footer-contacts a[href^="https://mp.weixin.qq.com/"] { color: #9fc3ff; }
+.astra-page .site-footer .footer-contacts a[href^="https://mp.weixin.qq.com/"]:hover { color: #cfe1ff; }
+.astra-page .site-footer .footer-right { margin-right: 170px; }
+.astra-page .site-footer .association-logo { border-radius: 8px; }
+
+/* Astra nav entry: only rendered on astra.html */
+.site-nav a.astra-link { animation: astra-nav-in .8s ease .2s both; }
+@keyframes astra-nav-in {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (max-width: 760px) {
+  .astra-inline { margin: 34px auto 18px; padding: 0 18px; }
+  .astra-wordmark { top: 84px; left: 16px; gap: 12px; --astra-wordmark-size: 30px; }
+  .astra-page .site-header { padding: 10px 12px; }
+  .astra-page .header-tools { width: calc(100vw - 24px); max-width: none; }
+  .astra-page .site-footer { padding: 12px 16px 70px; }
+  .astra-page .site-footer .footer-right { margin-right: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .astra-inline,
+  .astra-wordmark,
+  .site-nav a.astra-link { animation: none; transition: none; }
+  .astra-inline { filter: none; transform: none; }
+  .astra-inline-go::before,
+  .astra-inline-go::after,
+  .astra-inline-go span { transition: none; }
+}

@@ -1,0 +1,95 @@
+/* An open, full-scale line atlas, scoped to the homepage. */
+.home-orbit-scene { --atlas-line:#8e283b; --atlas-soft:#9b4e5b; margin-top:12px; padding-top:0; }
+.home-orbit-scene .section-heading { position:relative; z-index:4; border:0; padding-bottom:0; }
+.home-orbit-scene .section-heading h2 { font-size:clamp(30px,4vw,52px); font-weight:400; letter-spacing:-.035em; }
+.home-orbit-scene .section-heading p:not(.eyebrow) { font-size:12px; letter-spacing:.08em; }
+.home-orbit-layout { display:block; position:relative; padding:12px 0 82px; perspective:none; }
+.home-orbit-layout::before { inset:10% -9% 16%; border-color:#ab40551a; transform:rotate(-18deg); }
+.home-page .home-orbit-layout .diplomatic-world { display:block; position:relative; width:min(100%,980px); max-width:980px; height:auto; aspect-ratio:1; margin:0 auto; pointer-events:auto; transform:none; transition:none; overflow:visible; }
+.diplomatic-sphere { position:absolute; inset:0; aspect-ratio:1; }
+.diplomatic-sphere::before { content:''; position:absolute; inset:8%; border-radius:50%; background:radial-gradient(ellipse at 30% 30%,#fbeee624,#a94b5b05 60%,#682e4510); pointer-events:none; }
+.diplomatic-sphere canvas { position:absolute; inset:0; width:100%; height:100%; border-radius:50%; cursor:grab; touch-action:none; }
+.diplomatic-sphere canvas:active { cursor:grabbing; }
+.diplomatic-sphere canvas:focus-visible { outline:1px solid var(--atlas-line); outline-offset:-4px; }
+.observatory-orbit { position:absolute; inset:6%; border:1px solid #aa536321; border-radius:50%; pointer-events:none; }
+.observatory-orbit-one { transform:rotate(-29deg) scale(1.1,.33); }
+.observatory-orbit-two { transform:rotate(57deg) scale(1.05,.77); border-style:dashed; opacity:.45; }
+.globe-north { position:absolute; left:0; right:0; top:0; text-align:center; font:9px/1.5 Arial,sans-serif; letter-spacing:.34em; color:var(--atlas-soft); }
+.globe-north::after { content:''; display:block; width:1px; height:26px; margin:12px auto 0; background:linear-gradient(var(--atlas-soft),transparent); opacity:.4; }
+.city-pins { position:absolute; inset:0; z-index:3; pointer-events:none; }
+.city-pin { --label-x:22px; --label-y:-19px; position:absolute; top:0; left:0; width:44px; height:44px; transform:translate(-50%,-50%); border:0; padding:0; border-radius:50%; color:var(--atlas-line); pointer-events:auto; text-decoration:none; touch-action:manipulation; }
+.city-pin::before { content:''; position:absolute; inset:18px; background:currentColor; border-radius:50%; box-shadow:0 0 15px #c56e8055; }
+.city-pin::after { content:''; position:absolute; inset:12px; border:1px solid currentColor; border-radius:50%; opacity:.5; transition:inset .4s,opacity .4s; }
+.city-pin:hover::after,.city-pin:focus-visible::after { inset:6px; opacity:.9; }
+.city-pin[hidden] { display:none; }
+.city-pin-label { position:absolute; left:calc(50% + var(--label-x)); top:calc(50% + var(--label-y)); display:grid; gap:4px; width:max-content; min-width:105px; max-width:205px; padding:10px 13px 10px 12px; border-left:1px solid currentColor; background:linear-gradient(90deg,#f5ece6ec,#f5ece6ad 80%,transparent); backdrop-filter:blur(5px); transition:background .35s,transform .35s; }
+.city-pin-label::before { content:''; position:absolute; width:20px; height:1px; left:-21px; top:19px; background:currentColor; opacity:.5; }
+/* Home pins draw their leader from the true dot to the final label position. */
+.city-pin-leader { position:absolute; inset:0; width:44px; height:44px; overflow:visible; pointer-events:none; fill:none; stroke:currentColor; stroke-width:1; opacity:.5; }
+.city-pin.has-leader .city-pin-label::before { display:none; }
+.city-name { font:500 19px/1.2 'Microsoft YaHei',sans-serif; letter-spacing:.08em; }
+.city-en { font:8px/1.6 Arial,sans-serif; letter-spacing:.18em; opacity:.66; }
+.city-entry { color:var(--ink,#26191a); font:11px/1.5 'Microsoft YaHei',sans-serif; letter-spacing:.02em; margin-top:3px; }
+.city-pin:hover .city-pin-label,.city-pin:focus-visible .city-pin-label { transform:translateX(3px); background:#f8eee9f2; }
+.city-pin:focus-visible { outline:1px solid currentColor; outline-offset:2px; }
+.city-pin.label-left .city-pin-label { left:auto; right:calc(50% + var(--label-x)); border-left:0; border-right:1px solid currentColor; text-align:right; background:linear-gradient(270deg,#f5ece6ec,#f5ece6ad 80%,transparent); }
+.city-pin.label-left .city-pin-label::before { left:auto; right:-21px; }
+.city-pin.label-left:hover .city-pin-label { transform:translateX(-3px); }
+.city-pin[data-phase="night"] { color:#f1d5e2; }
+.city-pin[data-phase="night"] .city-pin-label { background:linear-gradient(90deg,#281c2bea,#281c2bb0 80%,transparent); }
+.city-pin[data-phase="night"].label-left .city-pin-label { background:linear-gradient(270deg,#281c2bea,#281c2bb0 80%,transparent); }
+.city-pin[data-phase="night"] .city-entry { color:#f7e9ee; }
+.city-pin[data-phase="night"]:hover .city-pin-label,.city-pin[data-phase="night"]:focus-visible .city-pin-label { background:#382337f2; }
+.globe-console { position:absolute; inset:auto 0 -15px; text-align:center; pointer-events:none; }
+.globe-instruction { font:12px/1.8 'Microsoft YaHei',sans-serif; color:var(--atlas-line); letter-spacing:.18em; margin:0; }
+.globe-instruction span { display:block; font:8px/2 Arial,sans-serif; letter-spacing:.25em; opacity:.6; margin-top:6px; }
+.globe-register { position:absolute; inset:auto 0 25px; display:flex; justify-content:space-between; font:8px Arial,sans-serif; letter-spacing:.17em; color:var(--atlas-soft); opacity:.6; pointer-events:none; }
+.globe-fallback-links { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; }
+.home-page.atlas-night .home-orbit-scene { --atlas-line:#f1cbd1; --atlas-soft:#c59da9; }
+.home-page.atlas-night .city-pin-label { background:linear-gradient(90deg,#24131eea,#24131eb3 80%,transparent); }
+.home-page.atlas-night .city-pin.label-left .city-pin-label { background:linear-gradient(270deg,#24131eea,#24131eb3 80%,transparent); }
+.home-page.atlas-night .city-pin:hover .city-pin-label,.home-page.atlas-night .city-pin:focus-visible .city-pin-label { background:#39212ef2; }
+.home-page.atlas-night .observatory-orbit { border-color:#e6b6c41c; }
+@media(min-width:1500px) { .home-page .home-orbit-layout .diplomatic-world { width:1050px; max-width:1050px; } }
+/* A compact editorial information line, not three dashboard tiles. */
+.home-page .home-event-overview { display:flex; flex-wrap:wrap; align-items:center; gap:8px 28px; padding:17px 0 15px; margin:0; border:0; background:none; }
+.home-page .home-event-overview > div { display:flex; flex-direction:row; align-items:baseline; justify-content:flex-start; gap:9px; min-height:0; padding:0; border:0; border-radius:0; background:none; box-shadow:none; }
+.home-page .home-event-overview > div:hover { transform:none; box-shadow:none; }
+.home-event-overview .event-label::before { display:none; }
+.home-event-overview .event-label { font-size:9px; margin:0; opacity:.65; letter-spacing:.08em; white-space:nowrap; }
+.home-event-overview strong { font-size:11px; line-height:1.8; font-weight:400; color:var(--muted); }
+.home-page .home-hero { padding-bottom:24px; }
+@media(max-width:720px) {
+ .home-orbit-scene { margin-top:17px; }
+ .home-orbit-layout { padding:17px 0 80px; }
+ .home-page .home-orbit-layout .diplomatic-world { width:calc(100% + 24px); max-width:none; margin:0 -12px; }
+ .globe-north { font-size:7px; letter-spacing:.24em; top:-4px; }
+ .globe-north::after { height:14px; margin-top:6px; }
+ .city-pin { --label-x:16px; --label-y:-17px; }
+ .city-pin-label { padding:7px 7px 7px 8px; min-width:75px; max-width:148px; gap:2px; }
+ .city-name { font-size:14px; letter-spacing:.03em; }
+ .city-en { font-size:6px; letter-spacing:.1em; }
+ .city-entry { font-size:9px; max-width:120px; }
+ .city-pin-label::before { width:14px; left:-15px; top:17px; }
+ .city-pin.label-left .city-pin-label { right:calc(50% + var(--label-x)); }
+ .city-pin.label-left .city-pin-label::before { right:-15px; }
+ .globe-console { bottom:-52px; }
+ .globe-register { display:none; }
+ .globe-instruction { font-size:10px; letter-spacing:.1em; }
+ .globe-instruction span { font-size:6px; }
+ .home-page .home-event-overview { gap:6px 18px; padding:14px 0 10px; margin-top:0; }
+ .home-page .home-event-overview > div { gap:7px; }
+ .home-event-overview strong { font-size:10px; }
+ .home-event-overview .event-label { font-size:8px; }
+}
+@media(prefers-reduced-motion:reduce) { .city-pin,.city-pin * { transition:none!important; } }
+/* Remove the decorative halos; the globe supplies light. The cursor glow stays site-wide. */
+.home-orbit-scene.atlas-scene::before,.diplomatic-sphere::before,.home-orbit-layout::before { display:none; }
+.home-page .site-ambient { background:linear-gradient(135deg,#30121e,#1d0d17 55%,#10090f); }
+.home-page .site-ambient::before,.home-page .site-ambient::after { display:none; }
+
+
+/* Home globe caption, matches the planet pages */
+.home-orbit-scene { position: relative; }
+.home-orbit-layout > .planet-caption { position: absolute; left: 0; bottom: 58px; margin: 0; color: var(--muted); font-size: 21px; letter-spacing: .12em; }
+.home-orbit-layout > .planet-caption .planet-name { font-family: Georgia, serif; letter-spacing: .2em; }

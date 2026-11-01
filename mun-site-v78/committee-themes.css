@@ -1,0 +1,45 @@
+[data-committee="01"] { --committee-accent: #6553a0; --committee-wash: #f5f2fb; --committee-line: #c5b9df; }
+[data-committee="02"] { --committee-accent: #956220; --committee-wash: #fcf5e8; --committee-line: #dbc69f; }
+[data-committee="03"] { --committee-accent: #325c86; --committee-wash: #eef4fa; --committee-line: #b5c9dc; }
+[data-committee="04"] { --committee-accent: #34765a; --committee-wash: #eff8f1; --committee-line: #b4d2c0; }
+.committee-card[data-committee] { border: 1px solid var(--committee-line); border-top: 4px solid var(--committee-accent); background: var(--committee-wash); }
+.committee-card[data-committee] h2, .committee-card[data-committee] h3, .committee-card[data-committee] summary, .committee-card[data-committee] dt { color: var(--committee-accent); }
+.committee-card[data-committee] .tag { background: #ffffffb8; border: 1px solid var(--committee-line); color: var(--committee-accent); }
+.committee-card[data-committee] .committee-topic, .committee-card[data-committee] p, .committee-card[data-committee] li, .committee-card[data-committee] dd { color: #454246; }
+.committee-index a[data-committee] { border-bottom: 2px solid var(--committee-accent); color: var(--committee-accent); }
+.delegate-choices { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.delegate-choice { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 9px; width: 100%; min-height: 185px; padding: 25px 27px; text-align: start; font: inherit; cursor: pointer; border: 1px solid var(--committee-line); border-top: 4px solid var(--committee-accent); border-radius: 13px; background: var(--committee-wash); transition: transform .24s,border-color .24s,box-shadow .24s; }
+.delegate-choice:hover { transform: translateY(-3px); box-shadow: 0 10px 28px #2b20200e; }
+.delegate-choice[aria-expanded="true"] { outline: 2px solid var(--committee-accent); outline-offset: 3px; }
+.delegate-choice:focus-visible { outline: 3px solid var(--committee-accent); outline-offset: 4px; }
+.delegate-choice .choice-number { font: 600 10px/1.5 Georgia,serif; letter-spacing: .14em; color: var(--committee-accent); }
+.delegate-choice .choice-title { padding-inline-end: 28px; font-size: clamp(18px,2vw,23px); font-weight: 600; color: var(--committee-accent); }
+.delegate-choice .choice-topic { font-size: 12px; line-height: 1.8; color: #625d59; }
+.delegate-choice .choice-action { display: block; margin-top: auto; padding-top: 7px; font-size: 12px; color: var(--committee-accent); }
+.delegate-choice .choice-plus { position: absolute; inset-inline-end: 24px; top: 28px; font: 300 30px/1 Georgia,serif; color: var(--committee-accent); transition: transform .3s; }
+.delegate-choice[aria-expanded="true"] .choice-plus { transform: rotate(45deg); }
+.delegate-panel.delegate-document { display: block; margin-top: 30px; padding: clamp(20px,3vw,32px); background: var(--committee-wash); color: #353335; border: 1px solid var(--committee-line); border-top: 4px solid var(--committee-accent); border-radius: 13px; scroll-margin-top: 140px; }
+.delegate-panel[hidden] { display: none !important; }
+.delegate-panel-heading { display: flex; align-items: center; justify-content: space-between; gap: 15px; margin-bottom: 16px; }
+.delegate-panel .delegate-panel-heading h2 { margin: 0; color: var(--committee-accent); font-size: 23px; line-height: 1.5; }
+.delegate-panel-close { display: grid; place-items: center; flex: none; width: 38px; height: 38px; border: 1px solid var(--committee-line); border-radius: 50%; color: var(--committee-accent); background: var(--committee-wash); cursor: pointer; font-size: 24px; }
+.procedure-frame { margin: 0; overflow-x: auto; border-radius: 8px; background: #fff; overscroll-behavior-inline: contain; }
+.procedure-frame img { display: block; width: 100%; max-width: none; height: auto; }
+.procedure-hint { font-size: 11px; line-height: 1.7; color: #77716b; margin: 9px 0 20px; }
+.procedure-files { display: flex; flex-wrap: wrap; gap: 8px 22px; padding: 0 0 22px; border-bottom: 1px solid #eee9e6; font-size: 12px; }
+.procedure-files a { color: var(--committee-accent); text-underline-offset: 3px; }
+.delegate-panel .delegate-download { width: fit-content; min-width: 240px; margin-top: 23px; gap: 32px; background: var(--committee-accent); }
+.delegate-panel .delegate-download:hover { filter: brightness(.88); }
+.home-page .atlas-entries.two-entries { gap: 65px; }
+@media (min-width: 721px) { .procedure-hint { display: none; } .procedure-files { padding-top: 15px; } }
+@media (max-width: 720px) { .procedure-frame img { min-width: 1050px; } }
+@media (max-width: 590px) { .delegate-choices { grid-template-columns: 1fr; gap: 13px; } .delegate-choice { min-height: 165px; padding: 22px; } .delegate-panel { padding: 18px 12px; margin-top: 23px; } .delegate-panel-heading h2 { font-size: 19px; } .delegate-panel .delegate-download { width: 100%; min-width: 0; } .home-page .atlas-entries.two-entries { gap: 8px; } }
+@media (prefers-reduced-motion: reduce) { .delegate-choice,.choice-plus { transition: none; } }
+.academic-download-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(190px,1fr)); gap: 14px; margin-top: 24px; }
+.academic-download { display: flex; flex-direction: column; gap: 12px; min-width: 0; padding: 21px; border: 1px solid var(--committee-line); border-radius: 10px; color: var(--committee-accent); background: #fff; text-decoration: none; transition: transform .2s,box-shadow .2s; }
+.academic-download:hover { transform: translateY(-3px); box-shadow: 0 8px 20px #2720270c; }
+.academic-download:focus-visible { outline: 2px solid var(--committee-accent); outline-offset: 3px; }
+.academic-file-type { font: 600 10px/1.5 Georgia,serif; letter-spacing: .15em; opacity: .65; }
+.academic-download strong { font-size: 18px; line-height: 1.5; color: var(--committee-accent); }
+.academic-file-download { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 12px; font-size: 12px; border-top: 1px solid var(--committee-line); }
+@media (max-width: 480px) { .academic-download-grid { grid-template-columns: 1fr; } }

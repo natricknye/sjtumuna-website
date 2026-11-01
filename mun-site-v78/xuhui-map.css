@@ -1,0 +1,253 @@
+/* Rotating, flat Xuhui atlas for the delegate portal.
+   No plate, no orbit ring: the line drawing floats directly on the page. */
+.atlas-primary .xuhui-layout { padding: 0 0 66px; }
+.atlas-primary .xuhui-map {
+  position: relative;
+  width: min(100%, 980px, calc(100svh - 140px));
+  min-width: 0;
+  aspect-ratio: 1;
+  margin: 18px auto 0;
+  isolation: isolate;
+  cursor: grab;
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.atlas-primary .xuhui-map.is-dragging { cursor: grabbing; }
+.xuhui-map canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .9s ease;
+}
+.xuhui-map.is-ready canvas { opacity: 1; }
+.xuhui-map:focus-visible {
+  outline: 1px dashed color-mix(in srgb, var(--atlas-line, #8e283b) 55%, transparent);
+  outline-offset: 8px;
+}
+.xuhui-pins {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+}
+.xuhui-pin {
+  pointer-events: auto;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .45s ease;
+}
+.xuhui-map.is-ready .xuhui-pin { opacity: 1; }
+.xuhui-map.is-ready .xuhui-pin.is-landmark { opacity: .86; }
+.xuhui-map.is-ready .xuhui-pin:nth-child(1) { transition-delay: .06s; }
+.xuhui-map.is-ready .xuhui-pin:nth-child(2) { transition-delay: .12s; }
+.xuhui-map.is-ready .xuhui-pin:nth-child(3) { transition-delay: .18s; }
+.xuhui-map.is-ready .xuhui-pin:nth-child(4) { transition-delay: .24s; }
+.xuhui-map.is-ready .xuhui-pin:nth-child(5) { transition-delay: .3s; }
+.xuhui-pin.is-landmark {
+  color: var(--muted, #716365);
+  cursor: default;
+}
+.xuhui-pin.is-landmark .city-kicker,
+.xuhui-pin.is-landmark .city-en { display: none; }
+.xuhui-pin.is-landmark .city-entry { display: block; }
+.xuhui-pin.is-landmark::before {
+  inset: 17px;
+  background: transparent;
+  border: 1px solid currentColor;
+  box-shadow: none;
+}
+.xuhui-pin.is-landmark::after { inset: 21px; opacity: .7; }
+
+/* Committee accents stay legible against both paper and night. */
+.atlas-primary .xuhui-pin[data-committee="01"] { color: #6d56a6; }
+.atlas-primary .xuhui-pin[data-committee="02"] { color: #9a631d; }
+.atlas-primary .xuhui-pin[data-committee="03"] { color: #315f8d; }
+.atlas-primary .xuhui-pin[data-committee="04"] { color: #2f7657; }
+.atlas-primary .xuhui-pin[data-committee="01"][data-phase="night"] { color: #cbb8f4; }
+.atlas-primary .xuhui-pin[data-committee="02"][data-phase="night"] { color: #f1cc8f; }
+.atlas-primary .xuhui-pin[data-committee="03"][data-phase="night"] { color: #a9cdf2; }
+.atlas-primary .xuhui-pin[data-committee="04"][data-phase="night"] { color: #a8ddc0; }
+
+/* Edge callouts: pushed to the outside of the map and kept upright. */
+.atlas-primary .xuhui-pin .city-pin-label,
+.atlas-primary .xuhui-pin[data-phase="night"] .city-pin-label,
+.atlas-primary .xuhui-pin.label-left .city-pin-label {
+  position: absolute;
+  right: auto;
+  display: grid;
+  gap: 2px;
+  width: max-content;
+  min-width: 0;
+  max-width: 168px;
+  padding: 7px 10px 8px 11px;
+  box-sizing: border-box;
+  border: 1px solid color-mix(in srgb, var(--line, #ead8d1) 76%, transparent);
+  border-left-width: 2px;
+  border-left-color: currentColor;
+  border-radius: 1px;
+  background: var(--card, #fffaf7);
+  background: color-mix(in srgb, var(--card, #fffaf7) 82%, transparent);
+  box-shadow: 0 5px 16px rgba(58, 23, 29, .07);
+  backdrop-filter: blur(6px);
+  text-align: left;
+  transform: none;
+  transition: background .3s, border-color .3s, box-shadow .3s;
+}
+.atlas-primary .xuhui-pin.lane-left .city-pin-label {
+  border-left-width: 1px;
+  border-left-color: color-mix(in srgb, var(--line, #ead8d1) 82%, transparent);
+  border-right-width: 2px;
+  border-right-color: currentColor;
+}
+.atlas-primary .xuhui-pin.lane-top .city-pin-label {
+  border-bottom-width: 2px;
+  border-bottom-color: currentColor;
+}
+.atlas-primary .xuhui-pin.lane-bottom .city-pin-label {
+  border-top-width: 2px;
+  border-top-color: currentColor;
+}
+.atlas-primary .xuhui-pin .city-pin-label::before { display: none; }
+.atlas-primary .xuhui-pin:hover .city-pin-label,
+.atlas-primary .xuhui-pin:focus-visible .city-pin-label {
+  background: var(--card, #fffaf7);
+  box-shadow: 0 7px 20px rgba(58, 23, 29, .12);
+  transform: none;
+}
+.atlas-primary .xuhui-pin.is-hovered .city-pin-label,
+.atlas-primary .xuhui-pin.is-active .city-pin-label {
+  border-color: currentColor;
+  box-shadow: 0 8px 24px rgba(58, 23, 29, .16);
+}
+.atlas-primary .xuhui-pin.is-active .city-pin-label { border-left-width: 3px; }
+.atlas-primary .xuhui-pin.is-active .city-name { color: currentColor; }
+.xuhui-map.is-hovering .xuhui-pin:not(.is-hovered):not(.is-active) { opacity: .7; }
+.xuhui-map.is-hovering .xuhui-pin.is-landmark { opacity: .7; }
+.atlas-primary .xuhui-pin:focus-visible {
+  outline: 1px solid currentColor;
+  outline-offset: 2px;
+  border-radius: 50%;
+}
+
+.xuhui-pin .city-kicker {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+  color: currentColor;
+  font: 600 7px/1.4 Arial, Helvetica, sans-serif;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.xuhui-pin .city-name {
+  color: var(--ink, #26191a);
+  font: 500 15px/1.25 'Microsoft YaHei', 'PingFang SC', sans-serif;
+  letter-spacing: .04em;
+}
+.xuhui-pin .city-en {
+  color: var(--muted, #716365);
+  font: 7px/1.45 Arial, Helvetica, sans-serif;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+.xuhui-pin .city-entry {
+  margin-top: 1px;
+  color: var(--muted, #716365);
+  font: 9px/1.45 'Microsoft YaHei', 'PingFang SC', sans-serif;
+  letter-spacing: .01em;
+}
+.xuhui-pin.is-landmark { opacity: .86; }
+.xuhui-pin.is-landmark .city-pin-label {
+  background: color-mix(in srgb, var(--card, #fffaf7) 74%, transparent);
+  border-style: dashed;
+  border-width: 1px;
+}
+.xuhui-pin.is-landmark .city-kicker { color: var(--muted, #716365); letter-spacing: .12em; }
+.xuhui-pin.is-landmark .city-entry { font-style: italic; }
+
+/* A cartographic place name just below the map, in the spirit of the
+   planet captions. It is not an entrance and never receives pointer events. */
+.xuhui-district-caption {
+  position: static;
+  z-index: auto;
+  left: auto;
+  top: auto;
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 10px 0 0;
+  color: color-mix(in srgb, var(--ink, #26191a) 76%, transparent);
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  transition: opacity .7s ease .2s;
+}
+.xuhui-map.is-ready + .xuhui-district-caption { opacity: 1; }
+
+.xuhui-district-caption .district-zh {
+  font: 400 21px/1 'Songti SC', 'SimSun', Georgia, serif;
+  letter-spacing: .12em;
+}
+.xuhui-district-caption .district-en {
+  font: 8px/1.2 Arial, Helvetica, sans-serif;
+  letter-spacing: .3em;
+  opacity: .72;
+  white-space: nowrap;
+}
+
+/* Small map-annotation note directly under the district name. It stays in
+   normal flow, so it never covers the drawing or its callouts. */
+.xuhui-map-disclaimer {
+  max-width: 100%;
+  margin: 6px 0 0;
+  color: var(--muted, #716365);
+  font: 400 11px/1.65 'Microsoft YaHei', 'PingFang SC', sans-serif;
+  letter-spacing: .035em;
+  text-wrap: pretty;
+  overflow-wrap: anywhere;
+  pointer-events: none;
+  user-select: none;
+  opacity: 0;
+  transition: opacity .7s ease .32s;
+}
+.xuhui-map.is-ready ~ .xuhui-map-disclaimer { opacity: .92; }
+
+@media (max-width: 720px) {
+  .atlas-primary .xuhui-layout { padding-bottom: 46px; }
+  .atlas-primary .xuhui-map {
+    width: calc(100% + 32px);
+    max-width: none;
+    min-width: 0;
+    margin: 16px -16px 0;
+  }
+  .xuhui-district-caption { margin-top: 8px; gap: 8px; }
+  .xuhui-district-caption .district-zh { font-size: 18px; letter-spacing: .08em; }
+  .atlas-primary .xuhui-pin .city-pin-label,
+  .atlas-primary .xuhui-pin[data-phase="night"] .city-pin-label,
+  .atlas-primary .xuhui-pin.label-left .city-pin-label {
+    max-width: 76px;
+    padding: 5px 7px 6px 8px;
+    gap: 1px;
+  }
+  .xuhui-pin .city-kicker { font-size: 6px; letter-spacing: .08em; }
+  .xuhui-pin .city-name { font-size: 12px; letter-spacing: .01em; }
+  .xuhui-pin .city-en,
+  .xuhui-pin .city-entry { display: none; }
+  .xuhui-pin.is-landmark .city-entry { display: block; font-size: 8px; line-height: 1.35; }
+  .atlas-primary .xuhui-map { touch-action: pan-y; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .atlas-primary .xuhui-pin .city-pin-label,
+  .xuhui-map canvas,
+  .xuhui-district-caption,
+  .xuhui-map-disclaimer,
+  .xuhui-pin,
+  .xuhui-pin * { transition: none !important; }
+}

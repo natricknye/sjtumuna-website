@@ -1,0 +1,80 @@
+.committee-atlas { margin-top:100px; padding-top:45px; border-top:1px solid var(--line); --atlas-line:#f1cbd1; --atlas-soft:#c59da9; }
+.committee-atlas-heading { max-width:620px; }
+.committee-atlas h2 { font:400 clamp(28px,4vw,46px)/1.25 'Noto Serif SC','SimSun',serif; margin:16px 0; }
+.committee-atlas h1 { font:400 clamp(30px,4vw,48px)/1.2 'Noto Serif SC','SimSun',serif; margin:8px 0 10px; }
+.atlas-primary { margin-top:0; padding-top:14px; border-top:0; --atlas-line:var(--fx-accent); --atlas-soft:var(--muted); }
+.atlas-primary .committee-atlas-heading { position:relative; z-index:4; pointer-events:none; }
+.atlas-primary .eyebrow { font-size:9px; margin:0; }
+.atlas-primary .atlas-context { margin:0; font-size:12px; }
+.atlas-primary .home-orbit-layout { padding-bottom:32px; }
+.atlas-primary .diplomatic-world { width:min(100%,900px,calc((100svh - 185px) / .86)); min-width:300px; margin-top:-18px; }
+.atlas-primary .globe-register { display:none; }
+.atlas-primary .atlas-location-note { margin-bottom:60px; font-size:10px; }
+.atlas-primary .city-pin { color:var(--fx-accent); }
+.atlas-primary .city-pin-label,.atlas-primary .city-pin.label-left .city-pin-label { background:var(--card); }
+.atlas-primary .city-pin .city-entry { color:var(--ink); }
+.atlas-primary .city-pin[data-phase="night"] .city-pin-label { background:#281923ec; }
+.atlas-primary .city-pin[data-phase="night"] .city-entry { color:#f7e9ee; }
+.atlas-primary .city-pin:hover .city-pin-label,.atlas-primary .city-pin:focus-visible .city-pin-label { background:var(--card); }
+.atlas-primary + #committees-content,.atlas-primary + .delegate-library { border-top:1px solid var(--line); padding-top:30px; }
+.delegate-panel { scroll-margin-top:120px; }
+.committee-atlas .atlas-context { font-size:13px; line-height:1.9; color:var(--muted); max-width:55ch; }
+.committee-atlas .home-orbit-layout { padding:0 0 55px; }
+.committee-atlas .diplomatic-world { position:relative; width:min(100%,940px); aspect-ratio:1; margin:0 auto; }
+.committee-atlas .city-pin { color:#efcfa3; }
+.committee-atlas .city-pin::before { box-shadow:none; }
+.committee-atlas .city-pin-label::before { display:none; }
+.committee-atlas .city-pin.label-left .city-pin-label { right:calc(50% + var(--label-x)); }
+.atlas-pin-leader { position:absolute; inset:0; width:44px; height:44px; overflow:visible; pointer-events:none; stroke:currentColor; stroke-width:1; opacity:.5; }
+.committee-atlas .city-pin-label { background:linear-gradient(90deg,#20101eeb,#20101ec9 85%,transparent); max-width:210px; }
+.committee-atlas .city-pin.label-left .city-pin-label { background:linear-gradient(270deg,#20101eeb,#20101ec9 85%,transparent); }
+.committee-atlas .city-pin .city-entry { color:#fff1e0; }
+.committee-atlas .city-pin[data-committee="01"] { color:#b8a2e4; }
+.committee-atlas .city-pin[data-committee="02"] { color:#e4bb77; }
+.committee-atlas .city-pin[data-committee="03"] { color:#9fc4ea; }
+.committee-atlas .city-pin[data-committee="04"] { color:#9bcbb2; }
+.committee-atlas .city-pin[data-committee="05"] { color:#ffd9be; }
+.committee-atlas .city-name { font-size:17px; }
+.committee-atlas .city-pin:hover .city-pin-label,.committee-atlas .city-pin:focus-visible .city-pin-label { background:#33202df5; }
+.committee-atlas .globe-register { inset:auto 5% 30px; }
+.committee-atlas .globe-instruction { color:var(--muted); font-size:11px; }
+.atlas-destinations { display:flex; flex-wrap:wrap; justify-content:center; gap:8px 24px; margin:10px auto 0; }
+.atlas-destinations button { background:none; border:0; border-bottom:1px solid var(--line); padding:12px 0; color:var(--ink); font:inherit; font-size:12px; cursor:pointer; }
+.atlas-destinations button:hover,.atlas-destinations button:focus-visible { border-color:currentColor; color:var(--fx-accent); }
+.atlas-location-note { text-align:center; color:var(--muted); font-size:11px; margin:25px 0 0; }
+.committee-dossier { scroll-margin-top:30px; }
+body:has(.committee-atlas) .site-ambient { background:linear-gradient(135deg,#30121e,#1d0d17 55%,#10090f); }
+body:has(.committee-atlas) .site-ambient::after { display:none; }
+.inner-editorial .page-main:has(.atlas-primary) { padding-top:16px; }
+.committee-atlas.atlas-primary { position:relative; margin:0 0 50px; padding:0; border:0; }
+.committee-atlas.atlas-primary .committee-atlas-heading { position:absolute; top:24px; left:0; max-width:48%; }
+.committee-atlas.atlas-primary .diplomatic-world { width:min(100%,980px,calc((100svh - 170px) / .92)); margin:0 auto; }
+.committee-atlas.atlas-primary .home-orbit-layout { padding:0 0 35px; }
+.atlas-primary .city-pin-label,.atlas-primary .city-pin.label-left .city-pin-label { background:var(--card); }
+.atlas-primary .city-pin .city-entry { color:var(--ink); }
+.atlas-primary .city-pin[data-committee="01"] { color:#6553a0; }
+.atlas-primary .city-pin[data-committee="02"] { color:#956220; }
+.atlas-primary .city-pin[data-committee="03"] { color:#325c86; }
+.atlas-primary .city-pin[data-committee="04"] { color:#34765a; }
+.atlas-primary .city-pin[data-committee="05"] { color:#8e283b; }
+.atlas-primary .city-pin[data-phase="night"] { color:#ecd0a3; }
+.atlas-primary .city-pin[data-phase="night"] .city-pin-label,.atlas-primary .city-pin[data-phase="night"].label-left .city-pin-label { background:#281923ec; }
+.atlas-primary .city-pin[data-phase="night"] .city-entry { color:#f7e9ee; }
+.atlas-primary .city-pin:hover .city-pin-label,.atlas-primary .city-pin:focus-visible .city-pin-label { background:var(--card); }
+@media(max-width:600px) {
+ .committee-atlas { margin-top:65px; padding-top:30px; }
+ .committee-atlas .diplomatic-world { width:calc(100% + 16px); margin-left:-8px; }
+ .committee-atlas .city-pin-label { min-width:76px; max-width:115px; padding:7px 8px; gap:2px; }
+ .committee-atlas .city-name { font-size:13px; }
+ .committee-atlas .city-en { font-size:6px; }
+ .committee-atlas .city-entry { font-size:10px; }
+ .committee-atlas .globe-register { display:none; }
+ .atlas-destinations { gap:4px 16px; justify-content:flex-start; }
+ .atlas-destinations button { font-size:11px; }
+ .atlas-location-note { text-align:left; line-height:1.8; }
+ .atlas-primary { margin-top:0; padding-top:12px; }
+ .atlas-primary .diplomatic-world { width:calc(100% + 16px); min-width:0; margin-top:10px; }
+ .atlas-primary .atlas-location-note { margin-bottom:35px; }
+ .committee-atlas.atlas-primary .committee-atlas-heading { position:relative; top:0; max-width:100%; padding-top:10px; }
+ .committee-atlas.atlas-primary .diplomatic-world { width:calc(100% + 16px); margin:10px -8px 0; }
+}

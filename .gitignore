@@ -1,0 +1,15 @@
+node_modules/
+__pycache__/
+*.log
+.env
+.env.*
+!.env.example
+outputs/
+input/
+.wrangler/
+.DS_Store
+Thumbs.db
+
+# Event media and real data are not part of this repository.
+mun-site-v78/assets/*
+!mun-site-v78/assets/README.md

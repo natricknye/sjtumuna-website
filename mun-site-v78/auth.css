@@ -1,0 +1,339 @@
+/* Delegate login: one small header control + a compact floating panel. */
+
+.header-tools-right {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.site-auth {
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.site-auth-btn {
+  display: inline-flex;
+  max-width: 178px;
+  min-height: 31px;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 0 11px;
+  border: 1px solid var(--line, #e2d5cf);
+  border-radius: 9px;
+  background: var(--card, #fffefa);
+  color: var(--ink, #76635d);
+  font: inherit;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.site-auth-btn:hover,
+.site-auth-btn:focus-visible {
+  color: #fff;
+  background: var(--red-dark, #7d1d24);
+  border-color: var(--red-dark, #7d1d24);
+  outline: none;
+}
+
+.site-auth-btn.is-authed {
+  color: var(--ink, #241a1d);
+  background: var(--card, #fffefa);
+  border-color: var(--line, #e2d5cf);
+}
+
+.site-auth-btn.is-authed:hover,
+.site-auth-btn.is-authed:focus-visible {
+  color: var(--ink, #241a1d);
+  background: var(--rose, #fffefa);
+  border-color: var(--line, #e2d5cf);
+}
+
+/* The scroll palette can be mid-tone while --ink has already flipped to light.
+   Pin the control to a dark surface on the night side so it never washes out. */
+body.atlas-night:not(.astra-page) .site-auth-btn {
+  border-color: var(--line, #583541);
+  background: #201119;
+  color: #fff7f1;
+}
+body.atlas-night:not(.astra-page) .site-auth-btn:hover,
+body.atlas-night:not(.astra-page) .site-auth-btn:focus-visible,
+body.atlas-night:not(.astra-page) .site-auth-btn.is-authed,
+body.atlas-night:not(.astra-page) .site-auth-btn.is-authed:hover,
+body.atlas-night:not(.astra-page) .site-auth-btn.is-authed:focus-visible {
+  border-color: var(--line, #583541);
+  background: #31202a;
+  color: #fff7f1;
+}
+
+.site-auth-btn .auth-dot {
+  width: 5px;
+  height: 5px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: var(--red, #a72530);
+  opacity: .55;
+}
+
+.site-auth-btn.is-authed .auth-dot {
+  background: #2f8a5b;
+  opacity: 1;
+}
+
+.site-auth-btn .auth-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Logged-in dropdown; deliberately tiny, not a second page. */
+.auth-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 85;
+  min-width: 148px;
+  padding: 6px;
+  border: 1px solid rgba(255, 247, 241, .16);
+  border-radius: 10px;
+  background: #110d12;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .45);
+}
+
+.auth-menu[hidden] { display: none; }
+
+.auth-menu-label {
+  display: block;
+  padding: 7px 9px 8px;
+  color: #fff7f1;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.auth-menu-label small {
+  display: block;
+  margin-top: 2px;
+  color: #9d8f98;
+  font-size: 10px;
+}
+
+.auth-menu button {
+  width: 100%;
+  padding: 8px 9px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: #ffb8c1;
+  font: inherit;
+  font-size: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.auth-menu button:hover { background: rgba(167, 37, 48, .25); }
+
+/* The page stays visible and dimmed behind this layer. */
+.auth-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(4, 6, 11, .62);
+  -webkit-backdrop-filter: blur(4px) saturate(.85);
+  backdrop-filter: blur(4px) saturate(.85);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .22s ease, visibility .22s ease;
+}
+
+.auth-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+html.auth-open,
+html.auth-open body { overflow: hidden; }
+
+.auth-panel {
+  position: relative;
+  width: min(372px, 100%);
+  max-height: calc(100svh - 48px);
+  overflow: auto;
+  padding: 27px 26px 22px;
+  border: 1px solid rgba(255, 247, 241, .14);
+  border-radius: 16px;
+  background: linear-gradient(160deg, rgba(23, 18, 24, .985), rgba(7, 6, 10, .99));
+  color: #fff7f1;
+  box-shadow: 0 28px 90px rgba(0, 0, 0, .62), inset 0 1px 0 rgba(255, 255, 255, .06);
+  transform: translateY(10px) scale(.985);
+  transition: transform .22s cubic-bezier(.16, 1, .3, 1);
+}
+
+.auth-overlay.is-open .auth-panel { transform: none; }
+
+.auth-kicker {
+  margin: 0 0 9px;
+  color: #9d8f98;
+  font-size: 9px;
+  letter-spacing: .24em;
+  text-transform: uppercase;
+}
+
+.auth-panel h2 {
+  margin: 0;
+  padding-right: 26px;
+  color: #fff7f1;
+  font-family: Georgia, "Songti SC", "SimSun", serif;
+  font-size: 25px;
+  font-weight: 500;
+  letter-spacing: .08em;
+  line-height: 1.2;
+}
+
+.auth-sub {
+  margin: 8px 0 20px;
+  color: #a99ba4;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.auth-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255, 247, 241, .12);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .04);
+  color: #c9b7b2;
+  font: inherit;
+  font-size: 17px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.auth-close:hover,
+.auth-close:focus-visible {
+  color: #fff7f1;
+  border-color: rgba(255, 247, 241, .3);
+  outline: none;
+}
+
+.auth-field { margin-top: 13px; }
+
+.auth-field label {
+  display: block;
+  margin-bottom: 6px;
+  color: #b8a9b2;
+  font-size: 11px;
+  letter-spacing: .04em;
+}
+
+.auth-field input {
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 247, 241, .14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, .045);
+  color: #fff7f1;
+  font: inherit;
+  font-size: 15px;
+  outline: none;
+  transition: border-color .18s ease, background .18s ease;
+}
+
+.auth-field input::placeholder { color: #675d66; }
+
+.auth-field input:focus {
+  border-color: #a9badf;
+  background: rgba(255, 255, 255, .065);
+}
+
+.auth-error {
+  min-height: 18px;
+  margin: 10px 0 0;
+  color: #ffb8c1;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.auth-submit {
+  width: 100%;
+  height: 42px;
+  margin-top: 3px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--red, #a72530);
+  color: #fff7f1;
+  font: inherit;
+  font-size: 13px;
+  letter-spacing: .12em;
+  cursor: pointer;
+  transition: background .18s ease, opacity .18s ease;
+}
+
+.auth-submit:hover,
+.auth-submit:focus-visible {
+  background: #bd2c38;
+  outline: none;
+}
+
+.auth-submit:disabled { cursor: wait; opacity: .55; }
+
+.auth-demo {
+  margin: 14px 0 0;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 247, 241, .1);
+  color: #776c75;
+  font-size: 10px;
+  line-height: 1.65;
+}
+
+.auth-demo b { color: #a99ba4; font-weight: 500; }
+
+@media (max-width: 760px) {
+  .header-tools-right { gap: 5px; }
+  .site-auth-btn { min-height: 44px; max-width: 132px; padding: 0 9px; font-size: 11px; }
+  .auth-overlay { padding: 16px; }
+  .auth-panel { width: min(372px, 100%); max-height: calc(100svh - 32px); padding: 24px 20px 18px; }
+  .auth-panel h2 { font-size: 23px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .auth-overlay,
+  .auth-panel { transition: none; }
+}
+
+/* Astra uses a dark floating nav pill; keep the auth control in the same language. */
+.astra-page .site-auth-btn {
+  border-color: rgba(255, 247, 241, .18);
+  background: rgba(11, 7, 9, .85);
+  color: #c9b7b2;
+}
+
+.astra-page .site-auth-btn:hover,
+.astra-page .site-auth-btn:focus-visible {
+  background: rgba(167, 37, 48, .45);
+  color: #fff7f1;
+  border-color: rgba(255, 247, 241, .26);
+}
+
+.astra-page .site-auth-btn.is-authed {
+  background: rgba(167, 37, 48, .62);
+  color: #fff7f1;
+  border-color: transparent;
+}
+
+.astra-page .auth-menu { background: #120b0e; }

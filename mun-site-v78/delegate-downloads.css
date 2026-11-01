@@ -1,0 +1,183 @@
+/* SJTUMUN public academic downloads — isolated from route-motion/site-effects. */
+.delegate-library { position: relative; isolation: isolate; margin: 0 0 64px; padding: clamp(24px,4.2vw,48px); border: 1px solid var(--line,#ead8d1); border-top: 4px solid var(--red,#a72530); border-radius: 18px; background: var(--card,#fffaf7); box-shadow: 0 18px 48px #54171c12; }
+.delegate-library::before { position: absolute; top: 0; right: 0; width: 36%; height: 230px; z-index: -1; content: ""; background: radial-gradient(ellipse at top right,#a7253010,transparent 74%); pointer-events: none; }
+.delegate-library-heading { display: flex; gap: 20px; align-items: flex-start; justify-content: space-between; margin-bottom: 28px; }
+
+/* Large, centred sign-in gate above the committee cards. */
+.delegate-auth-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  width: 100%;
+  max-width: 820px;
+  margin: 0 auto 26px;
+  padding: 19px 22px;
+  border: 1px solid var(--line, #ead8d1);
+  border-radius: 15px;
+  background: var(--card, #fffaf7);
+  color: var(--ink, #26191a);
+  box-shadow: 0 16px 38px #54171c12;
+}
+.delegate-auth-entry-copy { display: flex; min-width: 0; flex-direction: column; gap: 4px; }
+.delegate-auth-entry-kicker { color: var(--fx-accent, #a72530); font: 700 9px/1.4 Georgia, serif; letter-spacing: .2em; text-transform: uppercase; }
+.delegate-auth-entry-title { color: var(--ink, #26191a); font: 500 clamp(21px, 2.6vw, 28px)/1.25 Georgia, "Songti SC", "Microsoft YaHei", serif; letter-spacing: -.02em; }
+.delegate-auth-entry-hint { color: var(--muted, #716365); font-size: 12px; line-height: 1.65; }
+.delegate-auth-entry-button {
+  display: inline-flex;
+  min-width: 168px;
+  min-height: 48px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  border: 0;
+  border-radius: 9px;
+  background: var(--red, #a72530);
+  color: #fff;
+  font: inherit;
+  font-size: 13px;
+  letter-spacing: .1em;
+  cursor: pointer;
+  transition: transform .18s ease;
+}
+.delegate-auth-entry-button:hover,
+.delegate-auth-entry-button:focus-visible { background: var(--red-dark, #781923); transform: translateY(-1px); outline: none; }
+.delegate-auth-entry[data-state="authed"] .delegate-auth-entry-kicker { color: var(--fx-accent, #2f8a5b); }
+.delegate-auth-entry[data-state="authed"] .delegate-auth-entry-hint { color: var(--muted, #397a54); }
+.delegate-auth-entry[data-state="authed"] .delegate-auth-entry-button {
+  min-width: 112px;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--fx-accent, #a72530);
+  background: #fffaf7;
+  color: var(--fx-accent, #781923);
+  font-size: 11px;
+  letter-spacing: .04em;
+}
+.delegate-auth-entry[data-state="authed"] .delegate-auth-entry-button:hover,
+.delegate-auth-entry[data-state="authed"] .delegate-auth-entry-button:focus-visible { background: var(--fx-accent, #a72530); color: #fff; }
+/* Keep the gate and its lock notice readable while the scroll palette is mid-tone. */
+body.atlas-night:not(.astra-page) .delegate-auth-entry,
+body.atlas-night:not(.astra-page) .delegate-access-note {
+  border-color: #583541;
+  background: #201119;
+}
+body.atlas-night:not(.astra-page) .delegate-access-note[data-state="other"],
+body.atlas-night:not(.astra-page) .delegate-access-note[data-state="incomplete"] { background: #2a1a22; }
+body.atlas-night:not(.astra-page) .delegate-auth-entry-kicker,
+body.atlas-night:not(.astra-page) .delegate-access-icon { color: #f7d5b9; }
+body.atlas-night:not(.astra-page) .delegate-auth-entry[data-state="authed"] .delegate-auth-entry-button,
+body.atlas-night:not(.astra-page) .delegate-access-action {
+  border-color: #f7d5b9;
+  background: transparent;
+  color: #f7d5b9;
+}
+body.atlas-night:not(.astra-page) .delegate-auth-entry[data-state="authed"] .delegate-auth-entry-button:hover,
+body.atlas-night:not(.astra-page) .delegate-auth-entry[data-state="authed"] .delegate-auth-entry-button:focus-visible,
+body.atlas-night:not(.astra-page) .delegate-access-action:hover,
+body.atlas-night:not(.astra-page) .delegate-access-action:focus-visible {
+  border-color: #f7d5b9;
+  background: #f7d5b9;
+  color: #201119;
+}
+.delegate-library h1 { margin: 7px 0 12px; color: var(--fx-accent,var(--red-dark,#781923)); font: 500 clamp(28px,3.8vw,40px)/1.26 Georgia,"Songti SC",serif; letter-spacing: -.025em; }
+.delegate-library h1 span { display: block; margin-top: 6px; font: 500 12px/1.4 Georgia,serif; letter-spacing: .16em; text-transform: uppercase; }
+.delegate-library-intro { max-width: 650px; margin: 0; color: var(--muted,#716365); font-size: 14px; line-height: 1.9; }
+.delegate-library-tag { flex: none; padding: 9px 12px; border: 1px solid var(--line,#ead8d1); border-radius: 100px; color: var(--fx-accent,var(--red-dark,#781923)); font: 700 10px/1.4 Georgia,serif; letter-spacing: .08em; white-space: nowrap; }
+.delegate-documents { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 14px; }
+.delegate-document { display: flex; flex-direction: column; min-width: 0; min-height: 225px; padding: 21px; border: 1px solid var(--line,#ead8d1); border-radius: 13px; background: var(--rose,#f6dfdc); transition: transform .25s,border-color .25s,box-shadow .25s; }
+.delegate-document:hover { transform: translateY(-3px); border-color: var(--fx-accent,var(--red,#a72530)); box-shadow: 0 10px 24px #54171c17; }
+.delegate-document-number { margin-bottom: 15px; color: var(--fx-accent,var(--red-dark,#781923)); font: 700 11px/1.4 Georgia,serif; letter-spacing: .13em; }
+.delegate-document h2 { margin: 0 0 8px; color: var(--fx-accent,var(--red-dark,#781923)); font: 600 18px/1.5 Georgia,"Songti SC","Microsoft YaHei",serif; overflow-wrap: anywhere; }
+.delegate-document h2 small { font-size: .79em; font-weight: 500; }
+.delegate-document p { margin: 0 0 22px; color: var(--muted,#716365); font-size: 11px; line-height: 1.65; overflow-wrap: anywhere; }
+.delegate-download { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-height: 44px; margin-top: auto; padding: 10px 14px; border-radius: 8px; color: #fff !important; background: var(--red,#a72530); font-size: 13px; font-weight: 700; line-height: 1.4; text-decoration: none; transition: background .2s,transform .2s; }
+.delegate-download:hover,.delegate-download:focus-visible { color: #fff !important; background: var(--red-dark,#781923); transform: translateY(-1px); }
+.delegate-download small { margin-left: 6px; font: 500 10px Georgia,serif; letter-spacing: .08em; opacity: .85; }
+.delegate-download > span:last-child { font-size: 20px; font-weight: 400; }
+.delegate-library-footnote { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; margin: 18px 0 0; color: var(--muted,#716365); font-size: 11px; line-height: 1.6; }
+.delegate-library-footnote span { font: 600 10px/1.5 Georgia,serif; letter-spacing: .09em; }
+
+/* Committee-scoped academic downloads. The actual files are static for now;
+   this is a presentation lock, not a server-side permission gate. */
+.delegate-access-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 15px;
+  padding: 9px 11px;
+  border: 1px solid var(--line, #ead8d1);
+  border-radius: 10px;
+  background: var(--rose, #f6dfdc);
+  color: var(--ink, #3e3033);
+}
+.delegate-access-note[hidden] { display: none; }
+.delegate-access-note[data-state="other"],
+.delegate-access-note[data-state="incomplete"] { background: var(--card, #fff7f3); }
+.delegate-access-icon {
+  display: grid;
+  width: 29px;
+  height: 29px;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--line, #ead8d1);
+  border-radius: 50%;
+  color: var(--fx-accent, #781923);
+}
+.delegate-access-icon svg { width: 14px; height: 14px; }
+.delegate-access-copy { display: flex; min-width: 0; flex: 1; flex-direction: column; gap: 2px; }
+.delegate-access-copy strong { color: var(--ink, #2b2022); font-size: 12px; font-weight: 600; line-height: 1.55; }
+.delegate-access-copy small { color: var(--muted, #716365); font-size: 10px; line-height: 1.5; }
+.delegate-access-copy small:empty { display: none; }
+.delegate-access-action {
+  min-height: 29px;
+  flex: 0 0 auto;
+  padding: 0 9px;
+  border: 1px solid var(--fx-accent, #a72530);
+  border-radius: 7px;
+  background: #fffaf7;
+  color: var(--fx-accent, #781923);
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+}
+.delegate-access-action:hover,
+.delegate-access-action:focus-visible { background: var(--fx-accent, #a72530); color: #fff; outline: none; }
+.delegate-access-action[hidden] { display: none; }
+
+.academic-download.is-locked,
+.procedure-files a.is-locked { cursor: not-allowed; opacity: .7; }
+.academic-download.is-locked { position: relative; }
+.academic-download.is-locked:hover { transform: none; box-shadow: none; }
+.academic-download.is-locked .academic-file-download { color: var(--ink, #2b2022); }
+.procedure-files a.is-locked { color: var(--ink, #2b2022); opacity: .82; text-decoration: none; }
+.delegate-file-lock {
+  position: absolute;
+  top: 11px;
+  right: 11px;
+  display: inline-flex;
+  width: 22px;
+  height: 22px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .86);
+  color: #2b2022;
+}
+.delegate-file-lock svg { width: 12px; height: 12px; }
+.procedure-files a { display: inline-flex; align-items: center; gap: 5px; }
+.procedure-files a .delegate-file-lock { position: static; width: auto; height: auto; background: none; color: inherit; }
+
+@media (max-width: 590px) {
+  .delegate-auth-entry { flex-direction: column; align-items: stretch; gap: 14px; padding: 18px 16px; text-align: center; }
+  .delegate-auth-entry-button { width: 100%; min-height: 48px; }
+  .delegate-auth-entry[data-state="authed"] .delegate-auth-entry-button { width: auto; min-width: 118px; align-self: center; }
+  .delegate-access-note { align-items: flex-start; flex-wrap: wrap; }
+  .delegate-access-action { margin-left: 39px; }
+}
+.delegate-registration-intro { padding-top: 24px; border-top: 1px solid var(--line,#ead8d1); scroll-margin-top: 135px; }
+.delegate-registration-intro h2 { margin: 7px 0 12px; color: var(--fx-accent,var(--red-dark,#781923)); font: 500 clamp(34px,5vw,52px)/1.18 Georgia,"Songti SC",serif; }
+@media (max-width: 880px) { .delegate-documents { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 590px) { .delegate-library { padding: 23px 17px; margin-bottom: 45px; } .delegate-library-heading { display: block; } .delegate-library-tag { display: inline-block; margin-top: 14px; } .delegate-documents { grid-template-columns: 1fr; } .delegate-document { min-height: 180px; } }
+@media (prefers-reduced-motion: reduce) { .delegate-document,.delegate-download { transition: none; } .delegate-document:hover,.delegate-download:hover { transform: none; } }

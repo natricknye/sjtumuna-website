@@ -1,0 +1,254 @@
+/* Full Xuhui campus guide appended to the Conference Information page. */
+.campus-guide {
+  padding-top: 30px;
+}
+
+.campus-guide-kicker {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font: 600 10px/1.5 "Segoe UI", system-ui, sans-serif;
+  letter-spacing: .16em;
+}
+
+.campus-guide h2 {
+  margin-bottom: 8px;
+}
+
+.campus-guide-en {
+  display: block;
+  margin-top: 7px;
+  color: var(--muted);
+  font: 400 11px/1.4 "Segoe UI", system-ui, sans-serif;
+  letter-spacing: .16em;
+}
+
+.campus-guide-lead {
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: 14px;
+  letter-spacing: .08em;
+}
+
+.campus-guide-meta {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin: 0 0 30px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.campus-guide-meta > div {
+  min-width: 0;
+  padding: 14px 18px 15px 0;
+}
+
+.campus-guide-meta > div + div {
+  padding-left: 20px;
+  border-left: 1px solid var(--line);
+}
+
+.campus-guide-meta span {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--fx-accent);
+  font: 600 10px/1.4 "Segoe UI", system-ui, sans-serif;
+  letter-spacing: .12em;
+}
+
+.campus-guide-meta strong {
+  display: block;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.campus-guide-block {
+  margin: 0;
+  padding: 30px 0 32px;
+  border-bottom: 1px solid var(--line);
+}
+
+.campus-guide-block:first-of-type {
+  padding-top: 0;
+}
+
+.campus-guide-block h3 {
+  margin: 0 0 18px;
+  color: var(--ink);
+  font: 400 23px/1.4 "Songti SC", "SimSun", serif;
+  letter-spacing: -.01em;
+}
+
+.campus-guide-block h4 {
+  margin: 22px 0 9px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.7;
+}
+
+.campus-guide p,
+.campus-guide li {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.campus-guide p {
+  margin: 0 0 12px;
+}
+
+.campus-guide strong {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.campus-guide-list {
+  margin: 10px 0 0;
+  padding-left: 1.2em;
+}
+
+.campus-guide-list li + li {
+  margin-top: 5px;
+}
+
+.campus-guide-table-wrap {
+  margin: 12px 0 16px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.campus-guide-table {
+  width: 100%;
+  min-width: 660px;
+  border-collapse: collapse;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.campus-guide-table th,
+.campus-guide-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.campus-guide-table th {
+  color: var(--ink);
+  background: color-mix(in srgb, var(--fx-accent) 8%, transparent);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.campus-guide-table tbody tr:nth-child(even) {
+  background: color-mix(in srgb, var(--fx-accent) 3%, transparent);
+}
+
+.campus-guide-table td:first-child {
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.campus-guide-note {
+  margin: 14px 0 16px;
+  padding: 9px 0 9px 16px;
+  border-left: 2px solid var(--fx-accent);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.85;
+}
+
+.campus-guide-note a {
+  color: var(--fx-accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.campus-guide-muted {
+  color: var(--muted);
+  font-size: 12px !important;
+  opacity: .78;
+}
+
+.campus-guide-figure {
+  margin: 24px 0 26px;
+}
+
+.campus-guide-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.campus-guide-figure figcaption {
+  margin-top: 9px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.campus-guide-end {
+  margin: 26px 0 0 !important;
+  color: var(--muted) !important;
+  font-size: 12px !important;
+  letter-spacing: .04em;
+}
+
+@media (max-width: 720px) {
+  .campus-guide {
+    padding-top: 24px;
+  }
+
+  .campus-guide h2 {
+    font-size: 24px;
+  }
+
+  .campus-guide-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .campus-guide-meta > div {
+    padding: 11px 0 12px;
+  }
+
+  .campus-guide-meta > div + div {
+    padding-left: 0;
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+
+  .campus-guide-block {
+    padding: 24px 0 26px;
+  }
+
+  .campus-guide-block h3 {
+    font-size: 21px;
+  }
+
+  .campus-guide-table {
+    min-width: 600px;
+    font-size: 12px;
+  }
+
+  .campus-guide-table th,
+  .campus-guide-table td {
+    padding: 9px 10px;
+  }
+
+  .campus-guide-figure {
+    margin: 20px 0 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .campus-guide * {
+    scroll-behavior: auto !important;
+  }
+}
